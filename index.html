@@ -2,9 +2,11 @@
 <html>
     
     <head>
-        <!-- contiene de encabezado informacion de tu página  -->  
-               
-         <title>My first Website</title><!-- Lo que pone arriba -->      
+        <!-- contiene de encabezado informacion de tu página  -->   
+        <title>My first Website</title><!-- Lo que pone arriba -->  
+
+        <!--ICONO--> 
+        <link rel="icon" type="image/ico" href="images/favicon.ico"><!--relacion entre este doc y un recurso externo-->
     </head>
     
     <body>
@@ -18,13 +20,15 @@
         <br> <!--Esto es un salto de linea que puedes poner tantos como quieras-->
         
         <a href="https://www.youtube.com/watch?v=ZEcqHA7dbwM"
-           target="_blank"
-           title="Click here to go to my song"> 
-            >click here to go to another page
+        target="_blank"
+        title="Click here to go to my song"> 
+        >click here to go to another page
         </a>  
+
 
         <br>
         <br>
+
             <!-- Aqui te lleva a otro doc del porjecto -->
         <a href="lyrics.html">
             song lyrics
@@ -32,21 +36,76 @@
 
         <br>
         <br>
+
+
         <a href="mailto:test@fake.com">
             mandame un correo
         </a>
+
         <br>
         <br>
+
         <a href="https://descargas.eventoshq.me/category/formula-1/">
         <!--Una imagen-->
         <img src="images/nanooo.jpg" alt="Tu padre" height="200" width="200">
         </a>
         
         <br><br> <!--Asi no estan pegaas y stackeas brs-->
+
         <img src="images/ruleee.gif" alt="RULETA" height="200" width="200">
         <br><br>
         <img src = "images/lebron-lebron-dragon.gif" alt="lebron" height="200" width="200">
 
+
+        <br><br><hr><br>
+
+
+        <!-- Aqui va el audio de la cancion, controls(barra ciontrol) / autoplay / muted / loop type opcional -->
+        <p>Anuel Aa - Hasta Que Dios Diga</p>
+        <audio controls src="audio/Anuel Aa - Hasta Que Dios Diga.mp3" type ="audio/mp3"></audio>         
+        <br><br>
+
+
+        <!--Dentro del video hay un hyperlink, es decir cuando clickeas (o click derecho open in new tab)-->
+        <a target="_blank" href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki">
+        <!--Aqui voy a añadir un video- .mp4 .webm .ogg  autoplay muted loop-->
+        <video width="500px" controls>
+            <source src="video/DarkSouls.mp4" type="video/mp4">
+            <source src="video/DarkSouls.webm" type="video/webm">
+        </video>
+        </a>
+        
+        <br><br> <hr> <br>
+        <!--Voy a formatear texto-->             
+        <p style="font-size: larger;">Esto es textto <b>bold</b></p>
+        <p>Esto es textto <i>italic</i></p>
+        <p>Esto es textto <u>uderline</u></p>
+        <p>Esto es textto <del>deleted</del></p>
+        <p>Esto es textto <big>big</big></p>
+        <p>Esto es textto <small>small</small></p>
+        <p>Esto es textto <sub>subscript</sub></p>
+        <p>Esto es textto <sup>superscript</sup></p>
+        <p>Esto es textto <tt>monospaced</tt></p>
+        <p>Esto es textto (marcado) <mark style="background-color: lightgreen;">mark</mark></p>
+        <p style="color: red;">Esto es un texto rojo</p>     
+
+
+        <br><br><hr><br>
+
+
+        <p style="font-size:x-large;">Aqui van los span y div</p><br>
+        <p><span style="background-color: tomato;">Esto es un span texto</span></p>
+        <p><div style="background-color: blueviolet;">Esto es un div texto</div></p>
+
+        <br>
+
+        <p><span style="background-color: tomato;">Esto es una span frase</span></p>
+        <p><div style="background-color: blueviolet;">Esto es una div frase</div></p>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <span style="background-color: tomato;">Numquam tenetur cupiditate sed totam neque omnis! A voluptate iste, ad corrupti recusandae esse fugiat error excepturi molestiae saepe, nihil quaerat consequatur.</span></p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <div style="background-color: blueviolet;" > tenetur cupiditate sed totam neque omnis! A voluptate iste, ad corrupti recusandae esse fugiat error excepturi molestiae saepe, nihil quaerat consequatur.</div></p>
+        
+        
 
 
     </body>
@@ -62,6 +121,17 @@ target="_blank">  Esto es un enlace que se abre en una nueva pestaña
 title="Click here to go to my song">  Esto es un tooltip que sale al pasar el raton por encima del enlace
 href="mailto:fdsfd@fale.com">  Esto es un enlace que te lleva a un correo electronico
 
+crear el Favicon:
+1. Crear un icono de 16x16 o 32x32 px 96x96 px
+2. Guardar el icono como favicon.ico
+3. Subir el icono a la carpeta raíz del proyecto
+4. Crear link: relacion entre este doc y un recurso externo
+ej:<link rel="icon" type="image/ico" href="images/favicon.ico">
 
-
--->
+En css creare clases y estilos para los elementos de la pagina clase textos
+, y que las p con esa clase tengan un color de fondo y un color de texto que he definido en la clase css
+de moneto en html lo hago inline, pero luego lo hare en css
+span: es un elemento en linea que se usa para aplicar estilos a una parte del texto
+div: es un elemento de bloque que se usa para agrupar contenido y aplicar estilos a todo
+como se vio arriba, el span es un subrayador de texto, mientras que el div es un bloque de texto,
+cuando lo puse en div separo el texto en un bloque y lo subrayo todo, mientras que el span solo subraya la parte del texto que le indiques

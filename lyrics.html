@@ -2,8 +2,13 @@
 <html>
     <head>
         <title>My song lyrics</title>
+        <!--ICONO--> 
+        <link rel="icon" type="image/ico" href="images/favicon.ico"><!--link: relacion entre este doc y un recurso externo-->
+
     </head>
     <body>
+
+        
         <h1>Fly me to the moon</h1>
 
         <h4>By Frank Sinatra</h4>
@@ -21,7 +26,8 @@
         
         <br>
 
-        <pre>
+        <!-- texto formateado -->
+        <pre style="font-family: Arial, Helvetica, sans-serif;">
     Fly me to the moon
     Let me play among the stars
     Let me see what spring is like
@@ -44,5 +50,27 @@
     In other words, in other words
     I love you
         </pre>
+
+        <hr>
+
+        <!-- Aqui va el audio de la cancion, controls(barra ciontrol) / autoplay / muted / loop type opcional -->
+        <p>Frank Sinatra - Fly Me To The Moon</p>
+        <audio controls src="audio/Frank Sinatra - Fly Me To The Moon (Remastered 2008).mp3" type ="audio/mpeg"></audio>
+        <br>
+        <p>Estelle, Kanye West - American Boy</p>
+        <audio controls src="audio/Estelle, Kanye West - American Boy.mp3"></audio>
+        <hr>
+        <br><br>
+
+
+        <!--Dentro del video hay un hyperlink, es decir cuando clickeas (o click derecho open in new tab)-->
+        <a target="_blank" href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki">
+        <!--Aqui voy a añadir un video- .mp4 .webm .ogg  autoplay muted loop-->
+        <video width="500px" controls>
+            <source src="video/DarkSouls.mp4" type="video/mp4">
+            <source src="video/DarkSouls.webm" type="video/webm">
+        </video>
+        </a>
+
     </body>
 </html>
