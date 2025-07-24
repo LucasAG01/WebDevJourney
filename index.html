@@ -10,6 +10,17 @@
     </head>
     
     <body>
+        <header style="background-color: blueviolet;">
+            <h1>Bienvenido a mi primera página web</h1>
+            <p>Esta es una página de ejemplo para aprender HTML y CSS</p>
+            <a href="" style="padding-right: 7px;">Home</a>
+            <a href="" style="padding-right: 7px; ">Sobre Mi</a>
+            <a href="">Mi progreso</a> 
+            <p align="center"><sub>esto es un header</sub></p>    
+                
+        </header>
+
+        <main>
         <h1>Esto es un h1 heading</h1>
         <hr>
         <h2>esto en un h2</h2>
@@ -106,8 +117,182 @@
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <div style="background-color: blueviolet;" > tenetur cupiditate sed totam neque omnis! A voluptate iste, ad corrupti recusandae esse fugiat error excepturi molestiae saepe, nihil quaerat consequatur.</div></p>
         
         
+        <br><br><hr><br>
+        <p style="font-size: x-large;">Aqui van las listas</p>
+        <h4><u>Lista desordenada:</u></h4>
+        <ul>
+            <li>Tú puedes</li>
+            <li>Esfuerzate</li>
+            <li>Sigue!!</li>
+            <ul>
+                <li>Hazlo</li>
+                <li>Hazlo bien</li>
+                <li>Hazlo con ganas</li>
+            </ul>
+        </ul>
+<br>
+
+        <h4><u>Lista ordenadas</u></h4>
+        <ol style="color:antiquewhite;">
+            <li>Mañana</li>
+            <li>Tarde</li>
+            <li>Noche</li>
+            <ol>
+                <li>Pasear a Nago</li>
+                <li>Guardar al conejo</li>
+                <li>Dormir</li>
+            </ol>
+        </ol>
+
+<br>
+
+        <h4><u>Lista de definiciones</u></h4>
+        <dl style ="background-color: lightgreen; border:2px solid black; padding: 10px;">
+            <dt>HTML</dt>
+            <dd>Lenguaje de marcado de hipertexto</dd>
+            <dt>CSS</dt>
+            <dd>Hojas de estilo en cascada</dd>
+            <dt>JavaScript</dt>
+            <dd>Lenguaje de programación para la web</dd>
+        </dl>
+
+        <br><br><hr><br>
+
+        <!--Aqui van las Tablas-->
+        <h4>Horario tienda</h4>
+
+        <table border="1" style="background-color: black;">
+            <tr align="center" style="background-color: wheat;"> <!--Fila de encabezado-->
+                <th width ="100">Sunday</th>
+                <th width ="100">Monday</th>
+                <th width ="100">Tuesday</th>
+                <th width ="100">Wednesday</th>
+                <th width ="100">Thursday</th>
+                <th width ="100">Friday</th>
+                <th width ="100">Saturday</th>
+            </tr>
+            <tr align="center"> <!--Fila de datos-->
+                <td>Closed</td>
+                <td>9-5</td>
+                <td>9-5</td>
+                <td>9-5</td>
+                <td>9-5</td>
+                <td>9-5</td>
+                <td>10-2</td>
+            </tr>
+        </table>
+
+        
+        <br><br><hr><br>
+
+        <h4><b>Aqui van los botones</b></h4>
+
+        <!--Para hacer que un boton lleve a un enlace,se hace como en los videos o textos hypervinculo-->
+        <a target="_blank" href="https://www.youtube.com/watch?v=3_ZG_GKmIqc&list=RD3_ZG_GKmIqc&start_radio=1">
+        <button  style="font-size: 25px; background-color: grey; color: aqua; border-radius: 10px;">Click me!</button>
+        </a>
+        </p>
+        <a href="lyrics.html">
+        <button style="background-color: blueviolet; border-radius: 10px; font-size: 25px;">lyrics</button>
+        </a>
+
+        <br><br>
+        <!--Ahora un poco de tema javascript, podemos hacer que el boton, ejecute un funcion
+        que hayamos programado-->
+        <button onclick="myFunction()" style="font-size: 25px; color: blue;">Hago algo</button>
+        <button onclick="myFunction2()" style="font-size: 25px; color: yellow;">Cambio algo</button>
+         <p id ="textoCambiante">Que pasa si le das al boton?¿</p>   
+        <script>
+            function myFunction() {
+                alert("Hola, has hecho click en el boton");
+            }
+
+            function myFunction2() {
+                document.getElementById("textoCambiante").innerHTML = "ADIOS";
+            }
+        </script>
 
 
+        <br><br><hr><br>
+
+        <h4><u>Esto son las Form tags</u></h4>
+
+        <!--Formularios, en action, está a donde quewremos mandar la informacion que recademos aquí, en web a un doc en php para porcesarlo
+        el metodo, puede ser post, para informacion sensible datos inicio sesion, y get para datos insesibles
+        enctype multidata sirve para cuando mandas muchas cosas, lo manda en "partes" ej, aqui adjuntamos una imagen o archivo-->
+        <form action="index.php" method="post" enctype="multipart/form-data">
+            <!--el for es para la gente invalida que tiene screenreader-->
+            <label for="username">username:</label>
+            <!--El input es el campo de texto, type puede ser text, password, email, number, date, etc-->
+            <!--El id es para que el label sepa a que input se refiere
+            placeholder es un ejemplo de lo que puede haber ahí-->
+            <input type="text" id="username" placeholder="SpongeBob" minlength="6" maxlength="15" required><br>
+    
+            <label for="password">password:</label> 
+            <input type="password" id="password" maxlength="15" required><br>
+
+            <label for="email">email:</label>
+            <input type="email"  id="email" placeholder="hola@gmail.com" required><br>
+           
+            <label for="phone">phone #</label>    
+            <input type="tel" id="phone" placeholder="666-666-666" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required><br>
+            <!--Explicación del patrón:
+
+            [0-9]: Representa un dígito numérico del 0 al 9.
+
+            {3}: Indica que debe haber exactamente 3 dígitos seguidos.
+
+            -: Un guión literal que separa los grupos de números.-->
+
+            <label for="bday">birthdate</label>
+            <input type="date" id="bday" required><br>
+
+            <!--value es el valo por defecto si se deja en blanco-->
+            <label for="quantity">quantity:</label>
+            <input type="number" id="quantity" min="1" max="10" value ="0" required><br>
+
+            <label for="title">title</label>           
+            <select id="title" required>
+                <option value="Mr.">Mr.</option>        
+                <option value="Ms.">Ms</option>
+                <option value="Dr.">Dr</option>
+            </select><br>
+
+            <label for="gerarquia">Gerarquia</label><br>
+            <input type="radio" name="gerarquia" id="Jugador">
+            <label for="Jugador">Jugador</label>
+            <input type="radio" name="gerarquia" id="Guardia">
+            <label for="Guardia">Guardia</label><br>
+            
+            <label for="subscribe">Subscribe</label>
+            <input type="checkbox" id="subscribe"><br>
+
+            <!--El textarea es un campo de texto mas grande, para escribir mas-->
+            <label for="mensaxe">Message:</label>
+            <textarea id="mensaxe" rows="4" cols="50" placeholder="Escribe aquí tu mensaje" required></textarea><br>    
+
+            <label for="Arquivo">file:</label>
+            <input type="file" id="Arquivo" accept=".jpg, .jpeg, .png, .gif"><br>
+
+
+        <input type="reset">
+        <input type="submit"><br>
+
+        <!--Recurda que algunos label, deben tener el mismo nombre id que el input!-->
+        </form>
+        </main><br><br>
+
+        
+        <small><footer style="background-color: blueviolet;">
+            <p align="center"><sub>Esto es un footer</sub></p>
+            <hr>
+            <p>Creado por &copy;<a href="https://github.com/LucasAG01/WebDevJourney" target="_blank">LucasAG01</a> - 2025</p>
+            <p>Este es un proyecto de ejemplo para aprender HTML y CSS</p>
+            <progress></progress>
+        </footer>
+        </small>
+
+        
     </body>
 </html>
 
@@ -135,3 +320,24 @@ span: es un elemento en linea que se usa para aplicar estilos a una parte del te
 div: es un elemento de bloque que se usa para agrupar contenido y aplicar estilos a todo
 como se vio arriba, el span es un subrayador de texto, mientras que el div es un bloque de texto,
 cuando lo puse en div separo el texto en un bloque y lo subrayo todo, mientras que el span solo subraya la parte del texto que le indiques
+
+
+listas:
+
+Listas desordenadas:
+<ul>
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+</ul>
+Listas ordenadas:
+<ol>
+    <li>Primer elemento</li>
+    <li>Segundo elemento</li>
+    <li>Tercer elemento</li>    
+</ol>
+
+
+-->
+
+
