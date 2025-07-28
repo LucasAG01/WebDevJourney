@@ -1,0 +1,165 @@
+
+/*esto es un comentario en Css*/
+/*El Css se usa para dar estilo a los elementos HTML*/
+body{
+    background-color: rgb(0, 0, 0);
+    margin: 5px; /*margen de 5px*/
+}
+h1{
+    color: white;
+    text-align: center;
+    border-style: solid;
+}
+h2{
+    color: white;
+    text-align: center;
+    
+}
+p{
+    
+    text-align: left; /*alineacion del texto a la izquierda*/
+}
+
+/*En css podemois usar clases y id's para dar estilo a los elementos*/
+/*con los # solo nos referimos al ID pero las clases van con .*/
+#lyrico{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    /*border-style: solid;
+    border-width: 3px;
+    */
+    border: 3px solid rgb(14, 68, 218);
+    border-radius: 15px;
+}
+.repro1{
+    color: white;
+    text-align: left;
+    font-size: 23px;
+    
+}
+
+/*llamamos a la clase texto*/
+.testo{
+    color: white;
+    text-align: left;  
+    font-size: 20px;
+
+}
+
+
+#videoDS3{
+    text-align: center; /*alineacion del texto al centro*/
+    margin: 0 auto; /*margen automatico para centrar el video*/
+    margin-bottom: 40px;
+}
+
+/* podemos usar un mismo archivo css para varios archivos html */
+/*para que no se repita el codigo, podemos usar clases e id's*/
+
+/*la diferencia entre usar id y clase es que el id es unico, mientras que la clase puede ser usada en varios elementos*/
+/*por ejemplo, si queremos dar estilo a un elemento unico, usamos id, pero si queremos dar estilo a varios elementos, usamos clase*/
+/*en este caso, usamos id para el elemento pre y clase para el elemento p*/
+
+/*los colores pueden ser por nombre red, codigo RGB rgb(102, 222, 255) , hexadecimal #ff000 y hsl*/
+
+/*VOy a crear una font-face rule que enlazara ala carpeta fonts*/
+@font-face{
+    src: url(fonts/BitcountPropSingle_Cursive-Light.ttf);
+    font-family: 'Bitcount Prop Single Cursive';
+}
+
+/*Este no va por algun motivo....*/
+@font-face {
+    font-family: 'Bitcount Prop ';
+    src: url(fonts/BitcountPropSingle-VariableFont_CRSV\,ELSH\,ELXP\,slnt\,wght.ttf);
+}
+
+
+#fontTest{
+    font-family: 'Bitcount Prop Single Cursive', Arial, Helvetica, sans-serif;
+    color: white;
+    /*monospace es una fuente de ancho fijo*/
+    /*Mi funete a usar es lucida pero si no cvarga, iran las otras en orden*/
+    font-size: 1.1em;
+    margin:auto; /*margen automatico para centrar el texto*/
+
+    border: 3px solid rgb(14, 68, 218);
+    border-radius: 3px;
+    border-bottom: 3px solid rgb(218, 21, 14);
+    border-top: 3px solid rgb(14, 218, 21);
+    border-left: 3px solid orange;
+
+    /*Acabo de hacer borders, ahora sombras*/
+    text-shadow: 0px 1px 5px, 0px 1px 5px green; /*horizonta vertical blurr color  con una , puedo hacer mas efectos*/
+    
+}
+
+/*Turno de las Box*/
+#box1{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(14, 68, 218);
+    /*
+    border: 3px solid rgb(14, 218, 21);
+    border-radius: 15px;
+    */
+    box-shadow: 10px 10px 5px  rgba(14, 68, 218, 0.5); /*sombra de la caja*/
+    margin: auto; /*margen automatico para centrar la caja*/
+}
+
+.box{
+    border: 5px solid;
+    font-size: 5em;
+    width: 250px;
+    height: 250px;
+    margin: 50px; /*ponieendo solo margin, aplciamos a todos lados*/
+    /*margin-bottom: 50px; /*margen inferior de 50px despues de nuestra caja*/
+}
+
+#box2{
+    border-color: white;
+    background-color: red;
+    margin-left: auto; /*margen izquierdo automatico para centrar la caja la empuja hacia al drecha maxima SIEMPRE al maximo*/
+    
+}
+#box3{
+    border-color: white;
+    background-color: rgb(41, 140, 147);
+    margin: auto; /*margen automatico para centrar la caja*/
+}
+
+#pokeball{
+    float: left; /*flotamos a la izquierda*/
+    margin-right: 10px; /*margen derecho de 10px*/
+}
+
+#pikachu{
+    float: right; /*flotamos a la derecha*/
+    margin-left: 10px; /*margen izquierdo de 10px*/
+}
+.container{
+    display: flow-root;/*esto hace que los elementos flotantes se comporten como si estuvieran dentro de un contenedor*/
+    border: solid 2px rgb(202, 202, 202); /*borde solido de 2px*/
+    /*
+    width: 100%; ancho del 100%
+    height: 340px; alto de 100px
+    */
+    background-color: rgb(14, 68, 218); /*color de fondo*/
+    position: relative; /*posicion relativa para que los elementos hijos se posicionen relativos a este elemento*/
+    margin-bottom: 10px; /*margen inferior de 10px*/
+    color: white;/*color del texto*/
+    font-family: Arial, Helvetica, sans-serif; /*fuente del texto*/
+}
+.container2{    
+    background-color: blanchedalmond;
+    border: 2px dotted rgb(14, 68, 218); /*borde punteado de 2px*/
+    border-width: 5px;
+    height: 150px;
+    overflow: auto;
+
+    /*letras*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;  
+}

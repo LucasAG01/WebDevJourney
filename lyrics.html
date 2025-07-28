@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <title>My song lyrics</title>
         <!--ICONO--> 
         <link rel="icon" type="image/ico" href="images/favicon.ico"><!--link: relacion entre este doc y un recurso externo-->
-
+        <link rel="stylesheet" href="style.css"> <!--Link para el recurso externo, en este caso Css-->
+        <!--Las font-->
+        
     </head>
     <body>
 
         
-        <h1>Fly me to the moon</h1>
+        <h1 >Fly me to the moon</h1>
 
-        <h4>By Frank Sinatra</h4>
+        <h4 >By Frank Sinatra</h4>
 
         <a href="https://www.youtube.com/watch?v=ZEcqHA7dbwM" title="Click here to go to the song" target="_blank">                      
         <img src="images/cover.jpg" alt="Frank Sinatra cover " height="200" width="200">
@@ -27,7 +30,8 @@
         <br>
 
         <!-- texto formateado -->
-        <pre style="font-family: Arial, Helvetica, sans-serif;">
+        <!--"font-family: Arial, Helvetica, sans-serif;"--> 
+        <pre id ="lyrico">
     Fly me to the moon
     Let me play among the stars
     Let me see what spring is like
@@ -54,23 +58,67 @@
         <hr>
 
         <!-- Aqui va el audio de la cancion, controls(barra ciontrol) / autoplay / muted / loop type opcional -->
-        <p>Frank Sinatra - Fly Me To The Moon</p>
-        <audio controls src="audio/Frank Sinatra - Fly Me To The Moon (Remastered 2008).mp3" type ="audio/mpeg"></audio>
+        <p class="repro1">Frank Sinatra - Fly Me To The Moon</p>
+        <audio controls src="audio/Frank Sinatra - Fly Me To The Moon (Remastered 2008).mp3" type ="audio/mpeg" ></audio>
         <br>
-        <p>Estelle, Kanye West - American Boy</p>
-        <audio controls src="audio/Estelle, Kanye West - American Boy.mp3"></audio>
+        <p class="repro1">Estelle, Kanye West - American Boy</p>
+        <audio controls src="audio/Estelle, Kanye West - American Boy.mp3" ></audio>
         <hr>
         <br><br>
 
 
         <!--Dentro del video hay un hyperlink, es decir cuando clickeas (o click derecho open in new tab)-->
+        <div id="videoDS3">
         <a target="_blank" href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki">
         <!--Aqui voy a añadir un video- .mp4 .webm .ogg  autoplay muted loop-->
-        <video width="500px" controls>
+        <video width="500px" controls >
             <source src="video/DarkSouls.mp4" type="video/mp4">
             <source src="video/DarkSouls.webm" type="video/webm">
         </video>
         </a>
+        </div>
+
+        <hr>
+        <br>
+
+        <h2>Voy a probar fuentes</h2>
+        <p id="fontTest">Aqui voy a probar las fuentes y como colocarlas de optros lados como las google fonts</p>
+        <div id="box1"></div>
+        <br>
+        <p>2 nuevas cajas para explicar márgenes!</p><br>
+        <div class="box" id="box2">Box 2</div>
+        <div class="box" id="box3">Box 3</div>
+        
+
+        <br><hr><br>
+
+        <div class="container">º
+        <h2><u>Los float</u></h2>
+
+        <img src="images/pokeball.png" alt="pokeball" width="150" height="150" id="pokeball">
+
+        <p>Los float en css</p>
+        <p>Sirven para que los elementos se alineen a la izquierda o derecha, y el texto fluya alrededor de ellos.</p>
+        <img src="images/Pikachu-Pokemon-Transparent-PNG-2017037003.png" alt="pikachu" width="150" height="150" id="pikachu">
+        <p>En este caso, la imagen de la pokeball está alineada a la izquierda, lo que permite que el texto fluya a su alrededor.</p>
+        <p>Esto es útil para crear diseños más dinámicos y atractivos, ya que permite que el contenido se organice de manera más fluida como el pikachu.</p>    
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem quos dolorum esse optio temporibus dolores asperiores deleniti adipisci at ducimus. Quibusdam perferendis reprehenderit unde blanditiis deserunt facere ex pariatur consectetur.</p>
+        </div>       
+
+        <div class="container2">
+            <p><strong><u>Tipos de Overflow</u></strong></p>
+            <p>El overflow en CSS se refiere a cómo se maneja el contenido que excede el tamaño de un elemento contenedor.</p>
+            <p>Existen varios tipos de overflow:</p>
+            <ul>
+                <li><strong>visible</strong>: El contenido que excede el tamaño del contenedor se muestra fuera de él.</li>
+                <li><strong>hidden</strong>: El contenido que excede el tamaño del contenedor se oculta.</li>
+                <li><strong>scroll</strong>: Se agrega una barra de desplazamiento para permitir ver el contenido que excede el tamaño del contenedor.</li>
+                <li><strong>auto</strong>: Se agrega una barra de desplazamiento solo si es necesario.</li>
+            </ul>
+        </div>
 
     </body>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+        
 </html>
