@@ -1,0 +1,33 @@
+#lebronDrako{
+    position:fixed;
+    right: 0px;/*esto hace que el elemento se quede fijo en la esquina izquierda de la pantalla*/
+    bottom: 0px; /*esto hace que el elemento se quede fijo en la esquina inferior de la pantalla*/
+}
+body{
+    background-image: url('images/background.png'); /*imagen de fondo*/
+    /*en el caso de que sea pequeña y se repita*/
+    background-repeat: no-repeat;
+    background-size: center; /*esto hace que la imagen de fondo cubra todo el fondo de la pagina*/
+    background-attachment: fixed; /*esto hace que la imagen de fondo se quede fija*/
+    background-size: cover;
+}
+h1{
+    color: rgb(7, 5, 5); text-align: center; 
+    border: 2px double black; 
+    display: block;
+    padding: 10px;
+    width: 150px;
+    margin:auto;
+    text-align: center;
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+p{
+    color: rgb(7, 5, 5);
+    text-align: center; /*alineacion del texto a la izquierda*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;  
+    margin-top: 420px;; /*margen de 10px*/
+    margin-left: 250px;
+}

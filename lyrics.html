@@ -6,7 +6,9 @@
         <!--ICONO--> 
         <link rel="icon" type="image/ico" href="images/favicon.ico"><!--link: relacion entre este doc y un recurso externo-->
         <link rel="stylesheet" href="style.css"> <!--Link para el recurso externo, en este caso Css-->
-        <!--Las font-->
+        <!--imagen Css fixed-->
+        <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50" id="lebronDrako">
+        
         
     </head>
     <body>
@@ -31,6 +33,9 @@
 
         <!-- texto formateado -->
         <!--"font-family: Arial, Helvetica, sans-serif;"--> 
+        <div class="lyricWrapper">
+            
+        <div id="lyricContainer">
         <pre id ="lyrico">
     Fly me to the moon
     Let me play among the stars
@@ -54,6 +59,8 @@
     In other words, in other words
     I love you
         </pre>
+        </div>
+        </div>
 
         <hr>
 
@@ -106,6 +113,7 @@
         </div>       
 
         <div class="container2">
+            
             <p><strong><u>Tipos de Overflow</u></strong></p>
             <p>El overflow en CSS se refiere a cómo se maneja el contenido que excede el tamaño de un elemento contenedor.</p>
             <p>Existen varios tipos de overflow:</p>
@@ -116,8 +124,85 @@
                 <li><strong>auto</strong>: Se agrega una barra de desplazamiento solo si es necesario.</li>
             </ul>
         </div>
+        <br><hr><br>
+
+        <h2>Display Property</h2>
+        <div style="color: white; font-family: Arial, Helvetica, sans-serif;">
+        <p>La propiedad display en CSS se utiliza para controlar cómo se muestra un elemento en la página web.</p>
+        <p>Existen varios valores para la propiedad display:</p>
+        <ul>
+            <li style="margin-bottom: 10px;"><strong>block</strong>: El elemento se muestra como un bloque, ocupando todo el ancho disponible, uno acaba debajo de otro.</li>            
+            <li style="margin-bottom: 10px;"><strong>inline</strong>: El elemento se muestra en línea, ocupando solo el espacio necesario.se olvida del widht...</li>
+            <li style="margin-bottom: 10px;"><strong>inline-block</strong>: El elemento se muestra en línea, pero se comporta como un bloque en linea al lado. hay width</li>
+            <li style="margin-bottom: 10px;"><strong>none</strong>: El elemento no se muestra en la página.</li>
+        </ul>
+        </div>
+
+        <div id="div1" style="color: white;">Bloque Div inline-block</div>   
+        <span id="span1" style="color: white">Bloque Span</span>
+        <p style="color:white">texto ejemplo de texto para ver el comportamiento del display inline-block y block.</p>
+
+        <br><hr><br>
+
+        <h2>Height and width</h2>
+
+        <div class="containerHeigth">
+        <div class="boxHeigth" >
+            <h3>Caixa 1</h3>
+        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos libero aspernatur beatae molestias iste provident exercitationem, vero, distinctio neque consectetur, perferendis illum nemo sunt praesentium tempora ab modi? Eum, sunt.</p>
+        </div>      
+        <div class="boxHeigth" >
+            <h3>Caixa 2</h3>
+        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos libero aspernatur beatae molestias iste provident exercitationem, vero, distinctio neque consectetur, perferendis illum nemo sunt praesentium tempora ab modi? Eum, sunt.</p>
+        </div>   
+        </div><br><br>
+
+        <br><hr><br>
+        <h2>Posiciones</h2>
+
+        <div id="cajaPosition">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            <img src="images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50">
+            
+        </div>
+
+        <p>Las posiciones pueden ser:</p>
+        <ul style="color: white;">
+            <li style="margin-bottom: 5px;"><strong>static</strong>: La posición por defecto, los elementos se posicionan en el flujo normal del documento.</li>
+            <li style="margin-bottom: 5px;"><strong>relative</strong>: La posición se establece en relación a su posición original en el flujo del documento.</li>
+            <li style="margin-bottom: 5px;"><strong>absolute</strong>: La posición se establece en relación al contenedor más cercano con posición relativa.</li>
+            <li style="margin-bottom: 5px;"><strong>fixed</strong>: La posición se establece en relación a la ventana del navegador, no se desplaza al hacer scroll.</li>
+            <li style="margin-bottom: 5px;"><strong>sticky</strong>: Combina las propiedades relative y fixed, el elemento se comporta como relativo hasta que alcanza un cierto punto de desplazamiento, luego se comporta como fijo.</li>
+        </ul>
+        <br><hr><br>
+
+        <h2>Combinatores (la caja es id combinatores)</h2>
+        <div id ="combinatores">
+            <p>Esto es #1 </p>
+            <p>Esto es #2</p>
+            <div>
+                <p>Esto es #3 (es un div dentro de combinatores pero sin el id no cambia por poner combinatores > p )</p>              
+            </div>
+        </div>
+
+        <p>Esto es #4 si no estan en un div, son hermanos de combinatores, pero con el + p coge solo al primero de fuera de combinatores (1er hermano directo)</p>
+        <p>Esto es #5</p>
+        
+        
+
 
     </body>
+    
     <br><br><br><br><br><br><br><br><br><br><br><br>
 
         
