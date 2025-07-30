@@ -2,7 +2,7 @@
 /*esto es un comentario en Css*/
 /*El Css se usa para dar estilo a los elementos HTML*/
 body{
-    /*background-color: rgb(0, 0, 0);*/
+    background-color: rgb(38, 37, 37);
     /*margin: 5px; /*margen de 5px*/
     
 }
@@ -255,4 +255,69 @@ float: left; /*flotamos a la izquierda*/
 }
 #combinatores + p{ /* El primer paragrafos hermano de combinatores, es el que se cambia de color */              
     background-color: rgb(50, 57, 94);
+}
+
+a:link{ /*Esto se aplica a los enlaces que no han sido visitados*/
+    color: rgb(187, 186, 186); /*color de los enlaces*/
+    text-decoration: none; /*sin subrayado*/
+}
+a:hover{ /*Esto se aplica a los enlaces cuando se pasa el raton por encima*/
+    color: rgb(255, 0, 0); /*color de los enlaces*/
+    text-decoration: underline; /*subrayado*/
+}
+
+.paginacion{
+    text-align: center;
+}
+.paginacion a{
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: inline-block; /*esto hace que el elemento se comporte como un bloque en linea (podemos ajustar ancho y alto de esos elemntos)*/
+}
+.paginacion a.active{ /*Esto se aplica al enlace activo*/
+    background-color: rgb(26, 233, 91); /*color de fondo del enlace activo*/
+    color: rgb(12, 2, 2); /*color del texto del enlace activo*/
+    font-weight: bold; /*negrita del texto del enlace activo*/
+    border-radius: 5px;
+}
+.paginacion a:hover:not(.active){ /*Esto se aplica al enlace cuando se pasa el raton por encima*/
+    background-color: rgb(89, 92, 99); /*color de fondo del enlace activo*/
+    color: white; /*color del texto del enlace activo*/
+    text-decoration: none; 
+    border-radius: 5px;
+}
+
+
+
+.dropdown{ /*hitbox es solo el tamaño del botn (div class dropdown) */
+    display: inline-block;
+}
+.dropdown button{
+    background-color: rgb(14, 68, 218);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer; /*cursor de mano al pasar por encima*/
+}
+.dropdown a{
+    display: block; /*esto hace que el elemento se comporte como un bloque, ocupando todo el ancho disponible*/
+    color: white; /*color del texto del enlace*/
+    text-decoration: none;
+    padding: 10px 15px; /*padding de 10px arriba y abajo, 15px a los lados*/
+}
+.dropdown .content{
+    display: none; /*Esta desaparecido esto pero aparecera en otra {}*/
+    position: absolute; /*posicion absoluta para que el contenido se posicione relativo al elemento padre*/
+    background-color: hsl(0, 2%, 30%);
+    box-shadow: 0px 8px 16px rgba(243, 243, 34, 0.55); /*sombra del contenido*/
+}
+.dropdown:hover .content{ /*Esto es que aparezca el menu al pasar el raton*/
+    display: block;
+}
+.dropdown:hover button{
+    background-color: hsla(0, 1%, 30%, 0.529)
+}
+.dropdown a:hover{
+    background-color: hsla(0, 4%, 19%, 0.962)
 }

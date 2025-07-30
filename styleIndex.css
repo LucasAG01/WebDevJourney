@@ -1,0 +1,85 @@
+a:link{ /*Esto se aplica a los enlaces que no han sido visitados*/
+    color: rgb(0, 0, 0); /*color de los enlaces*/
+    text-decoration: none; /*sin subrayado*/
+}
+a:hover{ /*Esto se aplica a los enlaces cuando se pasa el raton por encima*/
+    color: rgb(255, 0, 0); /*color de los enlaces*/
+    text-decoration: underline; /*subrayado*/
+}
+a:active{ /*Esto se aplica a los enlaces cuando se hace click en ellos*/
+    color: rgb(0, 255, 0); /*color de los enlaces*/
+    text-decoration: none; /*sin subrayado*/
+}
+a:visited{ /*Esto se aplica a los enlaces que ya han sido visitados*/
+    color: rgb(35, 131, 96); /*color de los enlaces*/
+    text-decoration: none; /*sin subrayado*/
+}
+/*
+li:hover{ /*Esto se aplica a los elementos de lista cuando se pasa el raton por encima
+    color: rgb(255, 0, 0); /*color de los enlaces
+    text-decoration: underline; /*subrayado
+}
+li:not(:hover){ /*Esto se aplica a los elementos de lista que no estan siendo hover
+    color: rgb(26, 7, 69); /*color de los enlaces
+    text-decoration: underline; /*subrayado
+}
+
+li:nth-child(3n){ /*Esto se aplica al primer elemento de la lista tambien puedes poner even cada 3 3n en js ahí iria una variable
+    background-color: rgb(56, 195, 98); color de los enlaces
+    text-decoration: none; /*sin subrayado
+}
+*/
+#listaClases > li:hover{ /*Esto se aplica a los elementos de lista que son hijos directos de listaClases*/
+    color: rgb(255, 0, 0); /*color de los enlaces*/
+    text-decoration: underline; /*subrayado*/   
+}
+#listaClases > li:not(:hover){ /*Esto se aplica a los elementos de lista que son hijos directos de listaClases y no estan siendo hover*/
+    color: rgb(26, 7, 69); /*color de los enlaces*/
+    text-decoration: underline; /*subrayado*/
+}
+#listaClases > li:nth-child(3n){ /*Esto se aplica a los elementos de lista que son hijos directos de listaClases y son cada 3*/
+    background-color: rgb(56, 195, 98); /*color de los enlaces*/
+    text-decoration: none; /*sin subrayado*/
+}
+
+/*Saludos*/
+#greeting p{
+    background-color: lightcoral;
+    padding: 10px;
+    display: none;
+}
+#greeting:hover p{
+    display: block; /*esto hace que el elemento se muestre cuando se pasa el raton por encima*/
+}
+
+h1::first-letter{
+    font-size: larger;/*esto hace que la primera letra del h1 sea mas grande*/
+    font-style: italic; /*esto hace que la primera letra del h1 sea cursiva*/
+}
+
+#pseudoExpl::first-line {
+    font-weight: bold;
+    background-color: rgb(38, 183, 227);
+}
+#pseudoExpl::selection { /*/esto se aplica al texto seleccionado*/
+    background-color: rgb(4, 1, 1);
+    color: rgb(24, 210, 27);
+}
+
+#frutas li::before{ 
+    /*content: "✔ ";   /*esto añade un icono antes de cada elemento de la lista*/
+}
+#manzana::after{
+    content: " 🍎";  /*esto añade un emoji despues*/
+}
+#platano::after{
+    content: " 🍌"; 
+}
+#naranja::after{
+    content: " 🍊"; 
+}
+#frutas li::marker { /*esto cambia el marcador de la lista*/
+    content: "✔ ";
+    color: rgb(134, 26, 173);
+    size: 1.2em; /*tamaño del marcador*/
+}
