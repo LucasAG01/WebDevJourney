@@ -11,12 +11,21 @@
         
         
     </head>
-    <body>
-
-        
+    <body>      
         <h1 >Fly me to the moon</h1>
 
-        <h4 >By Frank Sinatra</h4>
+        <!--Esto es la navbar-->
+        <nav class="navbar">
+            <ul>
+                <li><a href="index2.html">Patitos</a></li>
+                <li><a href="#combinatores">combinatores</a></li>
+                <li><a href="#videoDS3">DarkSouls</a></li>
+            </ul>
+        </nav>
+
+    <main>
+
+        <h4 style="color: white" >By Frank Sinatra</h4>
 
         <a href="https://www.youtube.com/watch?v=ZEcqHA7dbwM" title="Click here to go to the song" target="_blank">                      
         <img src="images/cover.jpg" alt="Frank Sinatra cover " height="200" width="200">
@@ -71,11 +80,14 @@
         <p class="repro1">Estelle, Kanye West - American Boy</p>
         <audio controls src="audio/Estelle, Kanye West - American Boy.mp3" ></audio>
         <hr>
-        <br><br>
+        <br>
 
 
         <!--Dentro del video hay un hyperlink, es decir cuando clickeas (o click derecho open in new tab)-->
+        
         <div id="videoDS3">
+            <h2>DarkSouls</h2>
+            
         <a target="_blank" href="https://darksouls3.wiki.fextralife.com/Dark+Souls+3+Wiki">
         <!--Aqui voy a añadir un video- .mp4 .webm .ogg  autoplay muted loop-->
         <video width="500px" controls >
@@ -83,6 +95,7 @@
             <source src="video/DarkSouls.webm" type="video/webm">
         </video>
         </a>
+            <br><br><br>
         </div>
 
         <hr>
@@ -212,7 +225,7 @@
             <br><br>
 
             <p>Vale, din javascript, lo que toca es ir colocando toda la porcionhtml, 
-           cambiando la clase active en funcion de la pagina que abramos.
+               cambiando la clase active en funcion de la pagina que abramos.
             </p>
         </div>     
 
@@ -230,9 +243,33 @@
             <p>aqui va un exto de ejemplo (dentro de clase dropdown)</p>
         </div>
 
+        <br><br><hr><br>
+        <h2>Una Galería</h2>
+<div class="gallery-container"> <!-- Contenedor principal nuevo -->
+    <div class="gallery-item"> <!-- Cada item es independiente -->
+        <a target="_blank" href="images/paisage1.png">
+            <img src="images/paisage1.png" alt="Laputa Castle in the Sky" width="200">
+        </a>
+        <div class="description">Plano Arriba lateral</div>
+    </div>
+    
+    <div class="gallery-item">
+        <a target="_blank" href="images/paisage2.png">
+            <img src="images/paisage2.png" alt="Laputa Castle in the Sky" width="200">
+        </a>           
+        <div class="description">Plano contrapicado</div>
+    </div>
+    
+    <div class="gallery-item">
+        <a target="_blank" href="images/paisage3.png">
+            <img src="images/paisage3.png" alt="Laputa Castle in the Sky" width="200">
+        </a>
+        <div class="description">Plano zoom zona</div>
+    </div>
+</div>
         
 
-
+    </main>
     </body>
     
     <br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,84 @@
+#lebronDrako{
+    position:fixed;
+    right: 0px;/*esto hace que el elemento se quede fijo en la esquina izquierda de la pantalla*/
+    bottom: 0px; /*esto hace que el elemento se quede fijo en la esquina inferior de la pantalla*/
+}
+*{
+    box-sizing: border-box; /*esto lo que hace es que cuando calculamos el factor de ancho en el relleno(padding)
+    asi no se va de madre*/
+}
+body{
+    margin: 0;
+    background-color: white;
+}
+header{
+    background-color: lightslategrey;
+    text-align: center;
+    padding: 25px;
+}
+
+/*
+.navbar{
+    background-color: rgb(7, 7, 7);
+    height: 50px;
+}
+/*Las navbar*/
+.navbar ul{
+    list-style-type: none;
+    background-color: rgb(8, 7, 7);
+    padding: 0%;
+    margin-right: 0;
+    overflow: hidden;
+    
+}
+.navbar a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 15px;
+    
+    display: block;
+    text-align: center;
+}
+/*Cuando paos el raton por una de las secciones cambiara de color*/
+.navbar a:hover{
+    background-color:hsla(0, 4%, 73%, 0.363)
+}
+
+/*Hatsa aqui era vertical, ahora la  quiero horizontal*/
+.navbar li{
+    float: left;   
+}
+/*El todal del witdh de aside + section + article debe ser del 100%*/
+aside{
+    width: 20%;
+    float: left;
+    padding: 10px;
+}
+/*El todal del witdh de aside + section + article debe ser del 100%*/
+section{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+/*El todal del witdh de aside + section + article debe ser del 100%*/
+article{
+    width: 40%;
+    float: left;
+    padding: 10px;   
+}
+footer{
+    display: block;
+    clear: both;
+    /*Estas dos de arriba si no las colocas, el relleno del footer se come el main*/
+    background-color: lightslategrey;
+    text-align: center;
+    padding: 25px;
+}
+/*Si el ancho de la pantalla es de 600px o menos o celular, podemos cambiar algunos parametros de css */
+@media screen and (max-width:600px) {
+    aside,section,article{
+        /*CAda apratdo ocupara el 100%, apra que se vea todo bien en una pantalla pequeña
+        esto es css responsivo*/
+        width: 100%;
+    }
+}

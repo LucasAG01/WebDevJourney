@@ -4,7 +4,11 @@
 body{
     background-color: rgb(38, 37, 37);
     /*margin: 5px; /*margen de 5px*/
+    margin: 0;
     
+}
+main{
+    margin: 20px;
 }
 h1{
     color: white;
@@ -320,4 +324,69 @@ a:hover{ /*Esto se aplica a los enlaces cuando se pasa el raton por encima*/
 }
 .dropdown a:hover{
     background-color: hsla(0, 4%, 19%, 0.962)
+}
+
+/*Las navbar*/
+.navbar ul {
+    list-style-type: none;
+    background-color: white;
+    padding: 0;
+    margin: 0 auto; /* Esto centrará el ul */
+    overflow: hidden;
+    text-align: center; /* Centra los elementos inline/inline-block dentro */
+    width: auto; /*fit-content Ajusta el ancho al contenido */
+}
+.navbar a {
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    
+}
+/*Cuando paos el raton por una de las secciones cambiara de color*/
+.navbar a:hover{
+    background-color:hsla(0, 4%, 73%, 0.363)
+}
+
+/*Hatsa aqui era vertical, ahora la  quiero horizontal*/
+.navbar li {
+    float: none; /* Elimina el float */
+    display: inline-block; /* Muestra los li en línea pero mantiene propiedades de bloque */
+}
+
+/* Contenedor principal de la galería */
+.gallery-container {
+    display: flex;           /* Activa el modelo Flexbox */
+    flex-wrap: wrap;         /* Permite que los elementos pasen a nueva línea si no caben */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px;              /* Espacio uniforme entre elementos (reemplaza margin) */
+    padding: 20px;          /* Espacio interno alrededor del contenedor */
+}
+
+/* Cada item de la galería */
+.gallery-item {
+     border: 1px solid hsl(111, 94%, 42%); /* Borde verde azulado */
+    padding: 10px;                       /* Espacio interno */
+    text-align: center;                  /* Centra el contenido */
+    transition: all 0.3s ease;           /* Suaviza las animaciones */
+}
+
+.gallery-item:hover {
+    border: 1px solid hsl(111, 94%, 33%); /* Borde más oscuro al pasar mouse */
+    transform: scale(1.02);               /* Ligero zoom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.gallery-item img {
+    display: block;    /* Elimina espacio fantasma debajo de imágenes */
+    margin: 0 auto;    /* Centra la imagen horizontalmente */
+    max-width: 100%;   /* Asegura que no sobresalga del contenedor */
+    height: auto;      /* Mantiene proporciones originales */
+}
+
+.gallery-item .description {
+    padding: 10px;                      /* Espacio interno */
+    color: white;                       /* Color de texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente */
+    margin-top: 8px;                    /* Separación de la imagen */
 }
