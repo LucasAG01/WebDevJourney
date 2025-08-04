@@ -390,3 +390,92 @@ a:hover{ /*Esto se aplica a los enlaces cuando se pasa el raton por encima*/
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente */
     margin-top: 8px;                    /* Separación de la imagen */
 }
+
+/*icons general y especifico de la casa*/
+.icons{
+    text-align: center;
+}
+.icons a{
+    text-decoration: none;
+    margin-right: 20px;
+}
+.fa-solid.fa-house-chimney.fa-5x{
+    color: rgb(24, 223, 24);
+}
+.fa-solid.fa-house-chimney.fa-5x:hover{
+    color: rgba(24, 223, 24, 0.692);
+
+}
+.fa-brands.fa-twitter.fa-5x{
+color: aqua;
+}
+.fa-brands.fa-twitter.fa-5x:hover{
+color: rgba(0, 255, 255, 0.692);
+}
+
+.fa-brands.fa-youtube.fa-5x{
+color: red;
+}
+.fa-brands.fa-youtube.fa-5x:hover{
+color: rgba(255, 0, 0, 0.692);
+}
+.fa-solid.fa-headphones.fa-5x{
+color: rgb(219, 13, 255);
+}
+.fa-solid.fa-headphones.fa-5x:hover{
+color: rgba(219, 13, 255, 0.692);
+}
+
+
+
+/*Flexbox*/
+.flexContainer{
+    display: flex;
+    /*flex-direction sirve para cambiar la direccion de los items por defecto es row 1-2-3.. pero en rw reverse le 1 empieza en el borde derecho al izquiedo  4-3-2-1*/
+    /*justify-content contenido establece alineacion en el eje principal <------->main axis
+    space betweeen deja un espacio entre los cuadardos, si separamos la web
+    space around lo de fuera se añade
+    space evenly*/
+    
+    /*justify-content: space-evenly;*/
+    border:10px solid white;
+    height: 50vh; /*90% de la altura de la web*/
+
+    /*align-items es para el eje xiasis es decir el vertical (lo contrrio del justify)
+    baseline si el iemn de box 1 los pongo en 2em la cajita baja pero el 1 se queda alineado con el texto del resto*/
+    /*align-items: baseline;*/
+    /*Antes de eso los 8 estaban como sardinas en una lata que se cambio la anchura de ellos para entrar en la container
+    pero con flex-wrap en wrap, solo se van colocando uno al lado de otro en fila y pasan a otra linea para seguir, si alargamos la 
+    ventana se colocan en la misma liena ahy reverse*/
+    flex-wrap: wrap;
+    align-content: flex-start; /*Esto junto a wrap hace que se eliminen espacioentre las filas */
+    /*
+    column-gap: 3em;
+    row-gap: 3em;
+    */
+
+
+}
+.flexBox{
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+    border-radius: 15px;
+}
+#flexBox1{
+    
+    background-color: rgb(249, 80, 80);
+    /*align-self*: start center end en el eje vertical*/
+    /*order 1; se coloca al final -1 al principio*/
+}
+#flexBox2{
+    background-color: rgb(249, 246, 80);
+}
+#flexBox3{
+    background-color: lightgreen
+}
+#flexBox4{
+    background-color: rgb(100, 187, 216)
+}
+
