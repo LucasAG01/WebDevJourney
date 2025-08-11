@@ -2,6 +2,13 @@ body{
     background-color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
+    
+}
+
+#lebronDrako{
+    position:fixed;
+    right: 0px;/*esto hace que el elemento se quede fijo en la esquina izquierda de la pantalla*/
+    bottom: 0px; /*esto hace que el elemento se quede fijo en la esquina inferior de la pantalla*/
 }
 
 #countLabel{
@@ -25,4 +32,37 @@ body{
 }
 .buttonsCoun:hover{
     background-color: hsl(217, 86%, 49%);
+}
+
+.RanNumLabelStyle{
+    display: inline-block;
+    text-align: center;
+    font-size: 10em;
+    font-family: Helvetica;
+    margin: 20px;
+}
+#generatorNUM{
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: colorChange;
+    animation-duration: 4s;
+    animation-iteration-count: infinite; 
+}
+#generatorNUM:hover{
+    
+}
+@keyframes colorChange{
+    0%{background-color: lightseagreen;}
+    20%{background-color:rgb(42, 228, 32);}
+    40%{background-color:rgb(214, 243, 30);}
+    60%{background-color:rgb(250, 184, 17);}
+    80%{background-color:rgb(228, 35, 32);}
+    100%{background-color:rgb(228, 32, 215);}
+}
+
+#SubmitSubBtn{
+    font-size: 1em;
 }

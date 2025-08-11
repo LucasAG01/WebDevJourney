@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer JS</title>
     <link rel="stylesheet" href="jsStyle.css">
+    <img src="/images/lebron-lebron-dragon.gif" alt="lebronDrako" width="50" height="50" id="lebronDrako">
     
 </head>
 <body>
@@ -32,6 +33,7 @@
         <input id="myText"><br>
         <button id="mySubmit">submit</button>
         <h2 id="myH2">Resultado Input</h2>
+        
 
 
         <br><br><hr><br>
@@ -63,6 +65,90 @@
             <button id="increaseBtn" class="buttonsCoun">increase</button>
         </div>
 
+        <br><br><hr><br>
+
+        <h2>Math object</h2>
+        <p>Para hacer operaciones matemáticas como Pi, elevados, max, min, ángulos, raices, abs..</p>
+        <p>let a = 3.21;            let b = 2;            let c;</p>
+        <ul>
+            <li>c = Math.round(a);</li>
+            <li>c = Math.floor(a);</li>
+            <li>c = Math.ceil(a);</li>
+            <li>c = Math.min(a, b, c);</li>
+            <li>c = Math.max(a, b, c);</li>
+            <li>c = Math.trunc(a);</li>
+            <li>c = Math.pow(3,4); //3 elevado a 4</li>
+            <li>c =Math.sqrt(81);</li>
+            <li>c =Math.abs(a); //el positivo</li>
+        </ul>
+
+        <br><br><hr><br>
+
+        <h2>Random number generator</h2>
+
+        <pre>let randomNum = Math.random(); //entre 0 y 1
+
+//quiero un número entre 1 y 6
+let random16 = Math.floor(Math.random() * 6) + 1;</pre>
+
+        <div id = "buttonContainer">
+        <label id="RanNUMlabel" class="RanNumLabelStyle">0</label>
+        <label id="RanNUMlabel2" class="RanNumLabelStyle">0</label>
+        <label id="RanNUMlabel3" class="RanNumLabelStyle">0</label>
+        </div>
+        <div id = "buttonContainer">
+        <button id="generatorNUM">generate</button>   
+        </div> 
+
+        <br><br><hr><br>
+        <h2>Age verification</h2>
+
+        <label> <big><u>Enter your age :</u></big></label><br><br>
+        <input type="text" id="myTextAge"><br><br>
+        <button id="AgeVerBtn">submit</button>
+        <p id="resultAgeVerf"></p>
+        <ul>
+            <li>Todos los mensajes aplicables: Usa múltiples if independientes.</li>
+            <li>Solo el mensaje más importante: Usa else if en orden descendente.</li>
+            <li>Un mensaje base + extras: Usa anidación.</li>
+        </ul>
+        
+        <br><br><hr><br>    
+        <h2>CheckBox</h2>
+
+        <input type="checkbox" id="MyCheckBox">
+        <label for="MyCheckBox">Subscribe</label><br><br>
+
+        <!--Con el name, hacemos que solo se pueda seleccionar 1 del grupo-->
+        <input type="radio" id="VisaBtn" name="Card">
+        <label for="VisaBtn">Visa</label><br>
+        <input type="radio" id="MasterCardBtn" name="Card">
+        <label for="MasterCardBtn">Master Card</label><br>
+        <input type="radio" id="PayPalBtn" name="Card">
+        <label for="PayPalBtn">PayPal</label><br><br>
+
+        <button type="submit" id="SubmitSubBtn">submit</button>
+        <p id="submitResult"></p>
+        <p id="paymentResult"></p>
+
+        <br><br><hr><br>
+
+        <h2>Ternary Operator</h2>
+        <p>Es un shortcut de if{} y else{},<br> ayuda a signart una varieble en base a una condición.</p>
+        <p><span style="color: blue;">condition</span> <b>?</b><span style="color:hsl(120, 84%, 47%)"> codeIfTrue</span>  <b>:</b> <span style="color: hsl(0, 100%, 50%);">codeIfFalse</span>;</p>
+        <pre style="font-size: 1.5em;">
+    let age = 21;
+
+    let message = <span style="color:blue">age >= 18</span> <b>?</b> <span style="color:hsl(120, 84%, 47%)">"You are an adult"</span> <b>:</b> <span style="color: hsl(0, 100%, 50%);">"You are a minor"</span>;
+        </pre>
+    <hr><br>
+
+    <h2>Switch</h2>
+    <label>Pon numero y dire el dia de la semana:</label><br><br>
+    <input type="text" id="inputDayWeek">
+    <button type="submit" id="DayWeekBtn">submit</button><br>
+    <p id="DayWeekRes"></p>    
+
 
 
 
@@ -70,3 +156,4 @@
     <script src="jsindex.js"></script>
 </body>
 </html>
+

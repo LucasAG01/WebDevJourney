@@ -107,7 +107,7 @@ document.getElementById("mySubmit").onclick = function(){
     check=Boolean(username);
     
     if(check){
-        document.getElementById("myH2").textContent = `Your name is ${firstName}`; 
+        document.getElementById("myH2").textContent = `Your name is ${username}`; 
     }
     else{
         document.getElementById("myH2").textContent = `You put nothing`; 
@@ -118,11 +118,11 @@ document.getElementById("mySubmit").onclick = function(){
 
 /* Type Conversion */
 
-let age;
+//let age;
 
-age = Number(age); //convierte lo que le pongas a un numero
+//age = Number(age); //convierte lo que le pongas a un numero
 
-age+1;
+//age+1;
 
 
 //console.log(`${age}, datatype: ${typeof age}`);
@@ -142,6 +142,10 @@ z = Boolean(z); //Simpre que z tenga un valor, simepre sra true si esta vacio es
 
 
 /*COnstantes usando calculo de circunferencia*/
+window.addEventListener("load",function(){
+    radioInput ="";
+})
+
 
 let pi= Math.PI; //3 digitos
 //pero para otras cosas que si o ni nadie durante el rpograma pueda cambiar es asi
@@ -158,7 +162,7 @@ const resultadoElement = document.getElementById("Resultado");
 
 if(radioInput.trim() === "" || isNaN(radioInput)){
     resultadoElement.textContent = "Debes ingresar campo válido, pista: numero";
-
+    
 }else{
 
     const radio = Number(radioInput);
@@ -206,8 +210,169 @@ decreaseBtn.addEventListener("click",function(){
 })
 
 
+/*Math Operator*/
+//let a = 3.21;
+//let b = 2;
+//let c;
+
+//c = Math.round(a);
+//c = Math.floor(a);
+//c = Math.ceil(a);
+//c = Math.min(a, b, c);
+//c = Math.max(a, b, c);
+//c = Math.trunc(a);
+//c = Math.pow(3,4); //3 elevado a 4
+//c =Math.sqrt(81);
+//c =Math.abs(a); //el positivo
 
 
+/*Numeor aleatorio generator*/
+
+let randomNum = Math.random(); //entre 0 y 1
+
+//quiero un número entre 1 y 6
+let random16 = Math.floor(Math.random() * 6) + 1;
+
+//Quiero un numero aleatorio en un cierto rango
+const min = 50;
+const max = 100;
+let random50 = Math.floor(Math.random() * (max -min)) + min;
+
+
+
+/*Del 1 al 10 con los botones*/ 
+const generatorBtn =document.getElementById("generatorNUM");
+const RanNUMlabel =document.getElementById("RanNUMlabel");
+const RanNUMlabel2 =document.getElementById("RanNUMlabel2");
+const RanNUMlabel3 =document.getElementById("RanNUMlabel3");
+const minimo = 1;
+const maximo =10;
+
+
+generatorBtn.addEventListener("click",function(){
+let randomNUm10 = Math.floor((Math.random()*maximo))+minimo;
+let randomNUm101 = Math.floor((Math.random()*maximo))+minimo;
+let randomNUm102 = Math.floor((Math.random()*maximo))+minimo;
+RanNUMlabel.textContent = randomNUm10;
+RanNUMlabel2.textContent = randomNUm101;
+RanNUMlabel3.textContent = randomNUm102;
+});
+
+
+/*NO SE IF*/ 
+window.addEventListener("load",function(){
+    myTextAge.value = "";
+})
+
+const myTextAge = document.getElementById("myTextAge");
+const AgeVerBtn = document.getElementById("AgeVerBtn");
+const resultAgeVerf = document.getElementById("resultAgeVerf");
+let age;
+
+AgeVerBtn.addEventListener("click",function(){
+age = myTextAge.value;
+age=Number(age);
+
+if (age >=100){
+resultAgeVerf.textContent= `Too old to enter`;
+}
+else if(age ==0){
+resultAgeVerf.textContent= `Can't enter you were just born`;
+}
+else if(age >=18){
+resultAgeVerf.textContent= `You are old enough to enter`;
+}
+else if(age < 0){
+resultAgeVerf.textContent= `Your age can't be below 0`;
+}
+else{
+resultAgeVerf.textContent= `You must be 18+ to enter this site`;
+}  
+//myTextAge.value =""; borra el contenido del  textbox
+});
+
+
+/*CheckBox*/
+
+window.addEventListener('load', function() {
+    MyCheckBox.checked = false;
+    VisaBtn.checked = false;
+    MasterCardBtn.checked = false;
+    PayPalBtn.checked = false;
+    submitResult.textContent = '';
+    paymentResult.textContent = '';    
+});
+
+const MyCheckBox = document.getElementById("MyCheckBox");
+
+const VisaBtn = document.getElementById("VisaBtn");
+const MasterCardBtn = document.getElementById("MasterCardBtn");
+const PayPalBtn = document.getElementById("PayPalBtn");
+const SubmitSubBtn = document.getElementById("SubmitSubBtn");
+
+const submitResult = document.getElementById("submitResult");
+const paymentResult = document.getElementById("paymentResult");
+
+SubmitSubBtn.addEventListener("click",function(){
+
+    if(MyCheckBox.checked){
+    submitResult.textContent = `You are subscribed !`;
+    
+    if(VisaBtn.checked){
+    paymentResult.textContent = `You pay with Visa`;
+    }
+    else if(MasterCardBtn.checked){
+    paymentResult.textContent = `You pay with MasterCard`;
+    }
+    else if(PayPalBtn.checked){
+    paymentResult.textContent = `You pay with PayPal`;
+    } 
+    else{
+        submitResult.textContent = `Select a payment method in order to subscribe`;
+    }
+    }
+    else{
+    submitResult.textContent = `You are NOT subscribed !`;
+    }   
+});
+
+/*SWITCH*/
+
+const inputDayWeek = document.getElementById("inputDayWeek");
+const DayWeekBtn = document.getElementById("DayWeekBtn");
+const DayWeekRes = document.getElementById("DayWeekRes");
+let day;
+
+DayWeekBtn.addEventListener("click",function(){
+day = Number(inputDayWeek.value)
+
+    switch(day){
+    case 1:
+        DayWeekRes.textContent="It is Monday";
+        break;
+    case 2:
+        DayWeekRes.textContent="It is Tuesday";
+        break;
+    case 3:
+        DayWeekRes.textContent="It is Wednesday";
+        break;
+    case 4:
+        DayWeekRes.textContent="It is Thursday";
+        break;
+    case 5:
+        DayWeekRes.textContent="It is Friday";
+        break;
+    case 6:
+        DayWeekRes.textContent="It is Saturday";
+        break;
+    case 7:
+        DayWeekRes.textContent="It is Sunday";
+        break;
+    default:
+        DayWeekRes.textContent= "No se mano. Number between 1 and 7";
+        break;
+}
+});
 
 
 
