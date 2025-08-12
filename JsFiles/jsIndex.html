@@ -149,6 +149,84 @@ let random16 = Math.floor(Math.random() * 6) + 1;</pre>
     <button type="submit" id="DayWeekBtn">submit</button><br>
     <p id="DayWeekRes"></p>    
 
+    <br><br><hr><br>
+    <h2>Strings methods</h2>
+    <p>Te permiten manipular y trabajar con texto (strings)</p>
+<pre>
+                        <b>let nombreUser = "LucaS";</b>
+
+nombreUser.indexOf("A");  //Donde aparece la primera A mayúscula/
+nombreUser.charAt(2);  //Qué carácter hay en el index 2
+nombreUser.length;  //Largura de la cadena.
+nombreUser.trim(); //Quitar espacion en blanco
+nombreUser.toUpperCase();
+nombreUser.toLowerCase();
+nombreUser.repeat(3);  //Se repite 3 veces seguidas ese string
+nombreUser.startsWith(" ");  //boolean para ver si la ceda empiueza por un espacio blanco
+nombreUser.endsWith("S");
+nombreUser.includes(" ");  //boolean de si incluye eso
+
+                        <b>let phoneNumber = "123-456-7890";</b>
+
+phoneNumber.replaceAll("-", "/");  //reemplaza los - por /
+phoneNumber = phoneNumber.padStart(15, "0");  //Quiero un string de 15 chars "," el comienzo del string  000123-456-7890
+phoneNumber = phoneNumber.padEnd(15, "0");  //123-456-7890000
+
+                        <b>const fullName = "Lucas AG01";</b>
+
+let firstName = fullName.slice(0, fullName.indexOf(" "));
+let lastName = fullName.slice(fullName.indexOf(" ") + 1); //el rpimer espacio + 1 para no incluirlo
+
+                        <b>const email = "hehe@gmail.com";</b>
+
+let emailUser = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@") + 1);                        
+</pre>        
+
+    <br><br><hr><br>
+    <h2>Method Chaining</h2>
+
+    <p>Es básicamente llamar a un método tras otro en una línea de código continua.</p>
+    <pre>
+        let nombreUsuario = window.prompt("Enter your username: ");
+
+                            <b>Sin method chaining</b>
+
+nombreUsuario = nombreUsuario.trim(); //quitar espacios principio y final
+let letter = nombreUsuario.charAt(0); //coge la prierma letra
+letter = letter.toUpperCase(); //la pone en mayuscula
+
+let extraChars = nombreUsuario.slice(1); // coge el resto de chars hasta el final
+extraChars = extraChars.toLowerCase(); // los pone en minúscula
+
+nombreUsuario = letter+extraChars; //junta las 2 cadenas
+
+                            <b>Con method chaining</b>
+
+nombreUsuario = nombreUsuario.trim().charAt(0).toUpperCase() + nombreUsuario.trim().slice(1).toLowerCase();
+    </pre>
+
+    <br><br><hr><br>
+    <h2>Logical operators</h2>
+    
+    <p>Para combinar o manipular valores boolean</p>
+    <ul>
+        <li>AND = &&  &nbsp;&nbsp;&nbsp;las 2 deben ser true para ejecutar.</li>
+        <li>OR = ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 debe ser true para ser ejecutada.</li>
+        <li>NOT = !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  literalmente lo contrario.</li>
+    </ul>
+
+    <br><br><hr><br>
+    <h2>Strict equality</h2>
+
+    <ul>
+        <li>= &nbsp; Asignación</li>
+        <li>== &nbsp; Comparador (ve si 2 valores sin iguales) <math>69</math>(number) == "69"(string) TRUE.</li>
+        <li>=== &nbsp; Comparador estricto de igualdad (ve si 2 valores y su tipo de dato son iguales) <math>69</math>(number) === "69"(string) FALSE.</li>
+        <li>!= &nbsp; Ve si NO son iguales 2 valores.</li> 
+        <li>!== &nbsp; Lo mismo pero estricto.</li>
+    </ul>
+
 
 
 

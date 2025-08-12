@@ -23,9 +23,9 @@ se comporta como si fuera el valor que contiene.
 let price = 10.99;
 let gpa = 2.1;
 
-let firstName ="Lucas";
+let firstNamee ="Lucas";
 let favoriteFood = "sushi";
-let email = "Hola@gmail.com"
+let eemail = "Hola@gmail.com"
 /*
 
 */ 
@@ -35,7 +35,7 @@ let isStudent = false;
 let online=true;
 console.log(`Lucas`);
 
-document.getElementById("p1").textContent = `Your name is ${firstName}`;
+document.getElementById("p1").textContent = `Your name is ${firstNamee}`;
 document.getElementById("p2").textContent = `Your favourite food is ${favoriteFood}`;
 document.getElementById("p3").textContent = `Is lucas online...: ${online}`;
 
@@ -373,6 +373,83 @@ day = Number(inputDayWeek.value)
         break;
 }
 });
+
+/*Strings*/
+
+let nombreUser = "LucaS"
+
+nombreUser.indexOf("A"); /*Donde aparece la primera A mayúscula*/ 
+nombreUser.charAt(2) //Qué carácter hay en el index 2
+nombreUser.length; //Largura de la cadena.
+nombreUser.trim();//Quitar espacion en blanco
+nombreUser.toUpperCase();
+nombreUser.toLowerCase();
+nombreUser.repeat(3); //Se repite 3 veces seguidas ese string
+nombreUser.startsWith(" "); //boolean para ver si la ceda empiueza por un espacio blanco
+nombreUser.endsWith("S");
+nombreUser.includes(" "); //boolean de si incluye eso
+
+let phoneNumber = "123-456-7890";
+phoneNumber.replaceAll("-", "/");//reemplaza los - por /
+
+phoneNumber = phoneNumber.padStart(15, "0"); //Quiero un string de 15 chars "," el comienzo del string  000123-456-7890
+phoneNumber = phoneNumber.padEnd(15, "0"); //123-456-7890000
+//console.log(phoneNumber)
+
+
+/*String Slicing*/
+
+const fullName = "Lucas AG01";
+
+//let firstName = fullName.slice(0, 5);
+//let lastName = fullName.slice(6, 10);
+//último index exclusivo
+
+//let firstChar = fullName.slice(0,1);
+//let lastChar = fullName.slice(-1);
+
+let firstName = fullName.slice(0, fullName.indexOf(" "));
+let lastName = fullName.slice(fullName.indexOf(" ") + 1); //el rpimer espacio + 1 para no incluirlo
+
+//console.log(firstName);
+//console.log(lastName);
+
+const email = "hehe@gmail.com";
+
+let emailUser = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@") + 1);
+//console.log(emailUser)
+//console.log(extension)
+
+
+/*Method Chaining*/ 
+
+//let nombreUsuario = window.prompt("Enter your username: ");
+let nombreUsuario="";
+
+/*Sin method chaining*/
+
+nombreUsuario = nombreUsuario.trim(); //quitar espacios principio y final
+let letter = nombreUsuario.charAt(0); //coge la prierma letra
+letter = letter.toUpperCase(); //la pone en mayuscula
+
+let extraChars = nombreUsuario.slice(1); // coge el resto de chars hasta el final
+extraChars = extraChars.toLowerCase(); // los pone en minúscula
+
+nombreUsuario = letter+extraChars; //junta las 2 cadenas
+
+//console.log(nombreUsuario);
+
+
+/* Con method chaining */ 
+
+nombreUsuario = nombreUsuario.trim().charAt(0).toUpperCase() + nombreUsuario.trim().slice(1).toLowerCase();
+
+//console.log(nombreUsuario);
+
+
+/*Logical Operators*/ 
+
 
 
 
