@@ -448,12 +448,175 @@ nombreUsuario = nombreUsuario.trim().charAt(0).toUpperCase() + nombreUsuario.tri
 //console.log(nombreUsuario);
 
 
-/*Logical Operators*/ 
+/*While Loop*/ 
+
+let whileExpample;
+/*
+while (whileExpample ==="" || whileExpample === null) {
+    whileExpample = window.prompt(`Enter your name`);
+}
+console.log(`HI ${whileExpample}`);
+
+do{
+    whileExpample = window.prompt(`Enter your name`);
+}while (whileExpample ==="" || whileExpample === null) 
+console.log(`HI ${whileExpample}`);
+*/
+
+//Luego está el do while, donde la condicion while pasa abajo, y en el do ponemos un código que se ejecutrá al menos
+//1 vez, en esta condicion, podemos dejar el whileExample sin definir.
+
+//Do the code first, and then, check the condition at the end.
+
+let loggedIn = false;
+let whileUser;
+let whilePass;
+
+/*Pensamos, cómo podríamos escapar del while loop.
+while(!loggedIn){
+    whileUser = window.prompt("Enter Username");
+    whilePass = window.prompt("Enter Password");
+
+    if(whileUser ==="myUsername" && whilePass === "myPassWord"){
+        loggedIn = true;
+        console.log("You are logged in!");
+    }
+    else{
+        console.log("Invalid credentials Please try again");
+    }
+}
+
+De esta forma, podemos poner que logged sea true, y aún así ejecute lo de dentro
+do{
+    whileUser = window.prompt("Enter Username");
+    whilePass = window.prompt("Enter Password");
+
+    if(whileUser ==="myUsername" && whilePass === "myPassWord"){
+        loggedIn = true;
+        console.log("You are logged in!");
+    }
+    else{
+        console.log("Invalid credentials Please try again");
+    }
+}while(!loggedIn)
+*/
 
 
+/*For loop*/
+//Contador para trackear iternaciones ; condición para continuar el loop ; aumentar/decrementar contador
+/*
+for (let index = 0; index <= 20; index++) {
+    if (index == 13) {
+        continue;
+        con break; una vez que llega a 13 chapa (no se llega a ver)
+    }
+    console.log(index);
+}
+*/
 
 
+/*
+function esperar(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function iniciarCuentaRegresiva() {
+for (let i = 10; i >= 0; i--) {
+    console.log(i);
+    await esperar(1000); // Esperar 1 segundo
+}
+console.log("¡Cuenta regresiva finalizada!");
+}
+
+iniciarCuentaRegresiva();
+*/
 
 
+/*Adivina el número
+
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1));
+//Si temonos un numero minimo que no sea 1, debemos añadir un + minNUm al Math.foor()
 
 
+let attemps = 0;
+let guess;
+let running = true; 
+
+while(running){
+
+    guess = window.prompt(`Guess a number entre ${minNum} - ${maxNum} :`)
+
+    if(guess === null) {
+        window.alert("Juego cancelado. ¡Hasta la próxima!");
+        running = false;
+        continue; // Salta al siguiente ciclo (que no ocurrirá porque running es false)
+    }
+
+
+    guess = Number(guess);
+
+    if(isNaN(guess)){
+        window.alert("Pon un número válido!")
+    }
+    else if (guess < minNum || guess > maxNum){
+        window.alert("No te salgas del rango!");
+    }
+    else{
+        attemps++;
+        if(guess < answer){
+                window.alert("Too low");
+        }
+        else if(guess > answer){
+                window.alert("To high")
+        }
+        else{
+            window.alert(`CORRECT! the answer was ${answer}. it took you ${attemps} attemps.`);
+            running = false;
+        }
+    }  
+}
+*/
+
+
+/*Funciones*/ 
+function happyBirthday(felicitado, edad){
+console.log(`Felicidades ${felicitado}`);
+console.log(`Felicidades ${felicitado}`);
+console.log(`Felicidades ${felicitado}, ahora tienes ${edad} años`);
+
+}
+
+function add(x, y){
+    let result = x + y;     
+    return result;
+}
+
+let aswerFun= add(2, 3);
+//console.log(aswerFun);
+
+
+/*temperature conversion*/ 
+const TemperatureTxtbox = document.getElementById("TemperatureTxtbox");
+const toFahreinheit = document.getElementById("toFahreinheit");
+const toCelsius = document.getElementById("toCelsius");
+const resultTemp = document.getElementById("resultTemp");
+let temp;
+
+
+function convert(){
+    if(toFahreinheit.checked){
+        temp =Number(TemperatureTxtbox.value);
+        temp = temp * 9 / 5 + 32;
+        resultTemp.textContent = temp.toFixed(1) + "ºF"
+    }
+    else if(toCelsius.checked){
+        temp =Number(TemperatureTxtbox.value);
+        temp = (temp-32)* (5/9);
+        resultTemp.textContent = temp.toFixed(1) + "ºC"
+    }
+    else{
+        resultTemp.textContent ="Selecciona unidad";
+    }
+}

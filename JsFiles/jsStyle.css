@@ -51,9 +51,7 @@ body{
     animation-duration: 4s;
     animation-iteration-count: infinite; 
 }
-#generatorNUM:hover{
-    
-}
+
 @keyframes colorChange{
     0%{background-color: lightseagreen;}
     20%{background-color:rgb(42, 228, 32);}
@@ -65,4 +63,48 @@ body{
 
 #SubmitSubBtn{
     font-size: 1em;
+}
+
+#TemperatureC{
+    background-color: hsla(0, 1%, 85%, 0.985);
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px hsla(0, 0%, 0%, 0.3);
+}
+
+#TemperatureTxtbox{
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid hsla(0, 0%, 0%, 0.823);
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#toFahreinheitLbl, #toCelsiusLbl{
+    font-size: 1.5em;
+    font-weight: bold;    
+}
+
+#tempBtn{
+    margin-top: 15px;
+    font-size: 1.5em;
+    background-color: hsl(0, 100%, 60%);
+    color: white;
+    border: solid black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tempBtn:hover{
+    background-color: hsl(0, 100%, 50%);
+}
+
+#resultTemp{
+    font-size: 1.75em;
+    font-weight: bold;
 }

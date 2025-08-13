@@ -152,7 +152,7 @@ let random16 = Math.floor(Math.random() * 6) + 1;</pre>
     <br><br><hr><br>
     <h2>Strings methods</h2>
     <p>Te permiten manipular y trabajar con texto (strings)</p>
-<pre>
+<pre><big>
                         <b>let nombreUser = "LucaS";</b>
 
 nombreUser.indexOf("A");  //Donde aparece la primera A mayúscula/
@@ -181,13 +181,13 @@ let lastName = fullName.slice(fullName.indexOf(" ") + 1); //el rpimer espacio + 
 
 let emailUser = email.slice(0, email.indexOf("@"));
 let extension = email.slice(email.indexOf("@") + 1);                        
-</pre>        
+</big></pre>        
 
     <br><br><hr><br>
     <h2>Method Chaining</h2>
 
     <p>Es básicamente llamar a un método tras otro en una línea de código continua.</p>
-    <pre>
+    <pre><big>
         let nombreUsuario = window.prompt("Enter your username: ");
 
                             <b>Sin method chaining</b>
@@ -204,7 +204,7 @@ nombreUsuario = letter+extraChars; //junta las 2 cadenas
                             <b>Con method chaining</b>
 
 nombreUsuario = nombreUsuario.trim().charAt(0).toUpperCase() + nombreUsuario.trim().slice(1).toLowerCase();
-    </pre>
+    </big></pre>
 
     <br><br><hr><br>
     <h2>Logical operators</h2>
@@ -227,8 +227,124 @@ nombreUsuario = nombreUsuario.trim().charAt(0).toUpperCase() + nombreUsuario.tri
         <li>!== &nbsp; Lo mismo pero estricto.</li>
     </ul>
 
+    
+    <br><br><hr><br>
+
+    <h2>While loops</h2>
+    <p>Repite un código <b>MIENTRAS</b> alguna condición sea true</p>
+
+    <pre><big>
+        let loggedIn = false;
+        let whileUser;
+        let whilePass;
+
+/*Pensamos, cómo podríamos escapar del while loop.
+
+while(!loggedIn){
+    whileUser = window.prompt("Enter Username");
+    whilePass = window.prompt("Enter Password");
+
+    if(whileUser ==="myUsername" && whilePass === "myPassWord"){
+        loggedIn = true;
+        console.log("You are logged in!");
+    }
+    else{
+        console.log("Invalid credentials Please try again");
+    }
+}
+</big>
+    </pre>
+    <br><br><hr><br>
+
+    <h2>For loop</h2>
+    <p>Repite código un limitado número de veces.</p>
+    <p>Contador para trackear iternaciones ; condición para continuar el loop ; aumentar/decrementar contador</p>
+    <pre><big>
+    for (let index = 0; index <= 20; index++) {
+        if (index == 13) {
+            continue;
+            //con break; una vez que llega a 13 chapa (no se llega a ver)
+        }
+    console.log(index);
+    }
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Number Guessing Game</h2>
+
+    <pre><big>
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1));
+//Si temonos un numero minimo que no sea 1, debemos añadir un + minNUm al Math.foor()
 
 
+let attemps = 0;
+let guess;
+let running = true; 
+
+while(running){
+
+    guess = window.prompt(`Guess a number entre ${minNum} - ${maxNum}: `)
+
+    if(guess === null) {
+        window.alert("Juego cancelado. ¡Hasta la próxima!");
+        running = false;
+        continue; // Salta al siguiente ciclo (que no ocurrirá porque running es false)
+    }
+
+
+    guess = Number(guess);
+    
+    if(isNaN(guess)){
+        window.alert("Pon un número válido!")
+    }
+    else if (guess < minNum || guess > maxNum){
+        window.alert("No te salgas del rango!");
+    }
+    else{
+        attemps++;
+        if(guess < answer){
+                window.alert("Too low");
+        }
+        else if(guess > answer){
+                window.alert("To high")
+        }
+        else{
+            window.alert(`CORRECT! the answer was ${answer}. it took you ${attemps} attemps.`);
+            running = false;
+        }
+    }  
+}
+
+    </big></pre>
+
+    <br><hr><br>
+
+    <h2>Function</h2>
+    <p>Una sección de código reusable, escribe ese código 1 vez y úsalo donde quieras todas las veces.</p>
+    <p>Llama a esa función para ejecutar esé código.</p>
+    <p>Asegurate de que el orden de los parámetros es correcto.</p>
+    <p>Usamos return cuando la función debe comunicar un resultado, si modifica el objeto directamente, no hace falta.</p>
+
+    <br><br><hr><br>
+
+    <form id="TemperatureC"> 
+        <h2>Temperature conversion:</h2>
+        <input type="number" id ="TemperatureTxtbox" value="0"><br>
+
+        <input type="radio" id="toFahreinheit" name="unit">
+        <label for="toFahreinheit" id="toFahreinheitLbl">Celsius ==> Fahrenheit</label><br>
+
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius" id="toCelsiusLbl">Fahrenheit ==> Celsius</label><br>
+
+        <button id="tempBtn" type="button" onclick="convert()">submit</button>
+        <p id="resultTemp">Select a unit</p>
+    </form>
+
+     <br><br><hr><br>
 
     </main>
     <script src="jsindex.js"></script>
