@@ -344,7 +344,162 @@ while(running){
         <p id="resultTemp">Select a unit</p>
     </form>
 
-     <br><br><hr><br>
+    <br><br><hr><br>
+    <h2>Arrays</h2>
+    <p>Una variable como estructura que puede alamcenar más de 1 valor.</p>
+
+    <pre><big>
+                let fruits = ["apple", "orange", "banana"];
+
+    fruits[0] = "coconut" //cambia apple por coconut
+
+    fruits.push("pear");  //Empujar un elemnto al final
+
+    fruits.pop();  //borra el último elemnto
+
+    fruits.shift(); //elimina el primer elemento
+
+    fruits.unshift("mango");  //añade elemnto al principio del array
+
+    let numOfFruits = fruits.length;
+
+    let index = fruits.indexOf("orange");
+    </big></pre>
+
+    <br><br><hr><br>
+    <h2>Spread operator  (...)  y  Rest parameters (...rest)</h2>
+    <p> Spread, Permite a un iterable como un array o string a ser despiezado en elementos separados.</p>
+    <p>Como un desempaquetado.</p>
+    <p>Por otra banda, Rest, junta elementos separados en un array</p>
+
+    <pre><big>
+                            <b>/*Spread*/</b>
+                            
+        let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let maximumNum = Math.max(...numbersArray);
+let minimumNum = Math.min(...numbersArray);
+
+let nombreArrayEj ="Lucas AG";
+let lettersOp =[...nombreArrayEj].join("-")
+
+let fruits = ["apple", "orange", "banana"];
+let vegetables =["carrots", "celery", "potatoes"];
+
+
+let foods = [...fruits, ...vegetables, "eggs", "milk"]; //copy y paste de 2 arrays
+
+console.log(foods);
+
+                            <b>/*Rest parameters*/</b>
+
+function openFridge(...foods){
+    console.log(...foods); //Así las juento y las separo, las muestro separadas
+}
+
+function getFood(...foods){
+    return foods;
+}
+
+const food1 = "pizza";
+const food2 = "hamburguer";
+const food3 = "hotdog";
+const food4 = "sushi";
+
+//openFridge(food1, food2, food3, food4);
+
+const foods = getFood(food1, food2, food3, food4);
+
+//console.log(foods);
+
+
+
+
+function sum(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number
+    }
+    return result;
+}
+
+const total = sum(1, 3, 4);
+
+console.log(`Your total is $${total}`)
+
+//average
+function getAverage(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number
+    }
+    return result / numbers.length;
+}
+
+const totalAvg = getAverage(75, 60, 80, 50);
+
+console.log(`Your average score is ${totalAvg}`);
+    </big></pre>
+
+    <br><br><hr><br>
+    <h2>Random password generator</h2>
+    <pre><b>
+        // Función 
+function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+
+    // Definimos los caracteres disponibles para cada categoría
+    const lowercaseChars = "abcdefghijklmnñopqrstuvwxyz";  // Letras minúsculas
+    const upercaseChars = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";   // Letras mayúsculas 
+    const numberChars = "0123456789";                      // Números
+    const symbolChars = "!#~$%&/()={}'`¡@º][*";           // Símbolos especiales
+
+    let allowedChars = "";  // Aquí se almacenarán todos los caracteres permitidos
+    let password = "";      // Variable donde se construirá la contraseña final
+
+    // Concatenamos los caracteres permitidos según los parámetros:
+    allowedChars += includeLowercase ? lowercaseChars : "";  // Si includeLowercase es true, añade minúsculas
+    allowedChars += includeUppercase ? upercaseChars : "";   // Si includeUppercase es true, añade mayúsculas
+    allowedChars += includeNumbers ? numberChars : "";       // Si includeNumbers es true, añade números
+    allowedChars += includeSymbols ? symbolChars : "";      // Si includeSymbols es true, añade símbolos
+
+    // Validaciones:
+    if (length <= 0) {
+        return "(Password length must be at least 1)";  // La longitud debe ser mayor a 0
+    }
+    if (allowedChars.length === 0) {
+        return "(At least 1 set of character needs to be selected)";  // Debe haber al menos un tipo de carácter
+    }
+
+    // Generamos la contraseña carácter por carácter:
+    for (let index = 0; index < length; index++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);  // Índice aleatorio
+        password += allowedChars[randomIndex];  // Añadimos un carácter aleatorio de allowedChars
+    }
+
+    return password;  // Retornamos la contraseña generada
+}
+
+***************
+// Parámetros de ejemplo para generar una contraseña:
+const passwordLength = 12;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+// Llamada a la función:
+const password = generatePassword(
+    passwordLength,
+    includeLowercase,
+    includeUppercase,
+    includeNumbers,
+    includeSymbols
+);
+
+// Mostramos la contraseña generada:
+console.log(`Generated password: ${password}`);
+    </b></pre>
+
 
     </main>
     <script src="jsindex.js"></script>

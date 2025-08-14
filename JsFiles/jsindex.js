@@ -620,3 +620,159 @@ function convert(){
         resultTemp.textContent ="Selecciona unidad";
     }
 }
+
+
+/*Arrays*/
+
+let fruitsS = ["apple", "orange", "banana"];
+
+fruitsS[0] = "coconut" //cambia apple por coconut
+
+fruitsS.push("pear");  //Empujar un elemnto al final
+
+fruitsS.pop();  //borra el último elemnto
+
+fruitsS.shift(); //eleimina el rpimer elemento
+
+fruitsS.unshift("mango");  //añade elemnto al principio del array
+
+let numOfFruits = fruitsS.length;
+
+let index = fruitsS.indexOf("orange");
+
+//loop por los elementos y mostrarlos
+
+for (let index = 0; index < fruitsS.length; index++) {
+    const element = fruitsS[index];   
+    //console.log(element + ' posicon '+index)   
+}
+
+//SI fejo soloel fruist.legght, imporimira 4 espacios, pero se cuenta con 1 menos el length
+for (let index = fruitsS.length - 1; index >= 0; index--) {
+    const element = fruitsS[index];   
+    //console.log(element + ' posicon '+index)   
+}
+
+//Esto es un shortcut para mostrar los elementos de un array
+for(let fruit of fruitsS){
+    //console.log(fruit)
+}
+
+
+
+/*Spread Operator ...*/
+
+let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let maximumNum = Math.max(...numbersArray);
+let minimumNum = Math.min(...numbersArray);
+
+//let nombreArrayEj ="Lucas AG";
+//let lettersOp =[...nombreArrayEj].join("-")
+
+let fruits = ["apple", "orange", "banana"];
+let vegetables =["carrots", "celery", "potatoes"];
+
+
+let foodsS = [...fruits, ...vegetables, "eggs", "milk"]; //copy y paste de 2 arrays
+
+//console.log(foods);
+
+/*Rest parameters*/
+
+function openFridge(...foods){
+    console.log(...foods); //Así las juento y las separo, las muestro separadas
+}
+
+function getFood(...foods){
+    return foods;
+}
+
+const food1 = "pizza";
+const food2 = "hamburguer";
+const food3 = "hotdog";
+const food4 = "sushi";
+
+//openFridge(food1, food2, food3, food4);
+
+const foods = getFood(food1, food2, food3, food4);
+
+//console.log(foods);
+
+function sum(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number
+    }
+    return result;
+}
+
+const total = sum(1, 3, 4);
+
+//console.log(`Your total is $${total}`)
+
+//average
+function getAverage(...numbers){
+    let result = 0;
+    for(let number of numbers){
+        result += number
+    }
+    return result / numbers.length;
+}
+
+const totalAvg = getAverage(75, 60, 80, 50);
+
+//console.log(`Your average score is ${totalAvg}`);
+
+
+/*random password generator*/
+
+function generatePassword(lenght, includeLowercase, includeUppercase,includeNumbers, includeSymbols){
+
+    const lowercaseChars ="abcdefghijklmnñopqrstuvwxyz";
+    const upercaseChars = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    const numberChars ="0123456789";
+    const symbolChars= "!#~$%&/()={}'`¡@º][*";
+
+    let allowedChars = "";
+    let password = "";
+
+    // ? past
+    //Si una de estas const es true, quiero que coja ese correspondiente set de chars y los 
+    //concatene en el allowedChars string 
+
+    // concatenamos las const y vemos si queremos o no , si es asi, que concatene, sino que use nada.
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? upercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolChars : "";
+
+    if(lenght <= 0){
+        return `(Password length must be at least 1)`;
+    }
+    if(allowedChars.length === 0){
+        return `(At least 1 set of character needs to be selected)`;
+    }
+
+    for(let index = 0 ; index < lenght; index++){
+        const randomIndex = Math.floor(Math.random () * allowedChars.length);
+        password += allowedChars[randomIndex];
+    }
+
+    return password;
+}
+
+const passwordLength = 12;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+const password = generatePassword(passwordLength, 
+                                includeLowercase, 
+                                includeUppercase, 
+                                includeNumbers, 
+                                includeSymbols);
+
+console.log(`Generated password: ${password}`);                                
+                            
