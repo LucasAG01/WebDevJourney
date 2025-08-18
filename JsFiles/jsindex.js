@@ -775,4 +775,139 @@ const password = generatePassword(passwordLength,
                                 includeSymbols);
 
 console.log(`Generated password: ${password}`);                                
-                            
+
+
+/*Callbacks*/ 
+
+
+function hello(callback){
+    //console.log("Hello!");
+    callback(); //llama a la función callback que le pasamos como argumento
+}
+
+function goodbye(){
+    //console.log("Goodbye!");
+}
+
+hello(goodbye); //pero hay que pasarlo como parámetro, por eso modificamos hello para que acepte un callback y lo llame dentro de su cuerpo.
+
+//Se llaman las funciones hello y goodbye, y se ejecutan en ese orden., pero si por algun motivo hello tarda en ejecutarse,
+//goodbye se ejecutará antes de que hello termine, por eso se usan los callbacks,
+
+function leave(){
+    //console.log("Leaving...");
+}
+hello(leave); //Ahora, cuando hello se ejecute, llamará a leave después de que se ejecute su código.
+
+
+// 1. Definimos el callback
+function displayResultado(result) {
+    console.log(`The result is: ${result}`);
+}
+
+// 2. Definimos sum
+function sumar(callback, a, b) {
+    let result = a + b;
+    callback(result); 
+}
+
+// 3. Llamamos correctamente a sum()
+sumar(displayResultado, 5, 3); 
+
+
+//ejemplo en la web
+
+function displayPage(result){
+    document.getElementById("resultadCall").textContent = `The result is: ${result}`;
+}
+
+sumar(displayPage, 5, 3); 
+
+
+
+/*for each loop*/
+
+let numbersForEach = [1, 2, 3, 4, 5];
+
+
+numbersForEach.forEach(triple); // Ejecuta triple() en cada elemento
+numbersForEach.forEach(display) // Ejecuta display() en cada elemento
+
+
+function triple(element, index, array){
+    array[index] = element * 3; // Multiplica cada elemento por 3
+}
+
+// Función que solo muestra el elemento
+function display(element){
+    console.log(element); // Imprime el elemento
+}
+
+let frutitas = ["apple", "orange", "banana", "coconut"];
+
+frutitas.forEach(capitalize);
+frutitas.forEach(display);
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
+}
+
+function lowerCase(element, index, array){
+    array[index] = element.toLowerCase();
+}
+
+function capitalize(element, index, array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+
+
+/*Maps*/
+const chavales = ["lucas", "otro", "nose"]
+const numbersMap =[1, 2, 3, 4, 5];
+
+const numbersPow = numbersMap.map(square);
+const chavalesSubidos =  chavales.map(arrayUpper)
+
+console.log(numbersPow)
+console.log(chavalesSubidos)
+
+function square(element){
+    return Math.pow(element, 2);
+}
+function arrayUpper(element){
+    return element.toUpperCase();
+}
+
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
+
+console.log(formattedDates)
+
+function formatDates(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`
+}
+
+/*.filter()*/
+
+let numersFilter =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let numbersEvenFiltered = numersFilter.filter(isEven);
+
+console.log(numbersEvenFiltered)
+
+//Cogera los valores true y los colocara en un nuevo array
+function isEven(element){
+    return element % 2 === 0;
+}
+
+/*Reduce*/
+
+const grades = [15, 50, 65, 86, 90, 100, 99];
+const maxmoGrade = grades.reduce(getMax);
+
+console.log(`La nota máxima es: ${maxmoGrade}`);
+
+function getMax(accumulator, element){
+    return Math.max(accumulator, element);
+}

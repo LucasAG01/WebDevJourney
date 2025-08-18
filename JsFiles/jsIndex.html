@@ -254,9 +254,10 @@ while(!loggedIn){
 }
 </big>
     </pre>
+
     <br><br><hr><br>
 
-    <h2>For loop</h2>
+    <h2>For () loop</h2>
     <p>Repite código un limitado número de veces.</p>
     <p>Contador para trackear iternaciones ; condición para continuar el loop ; aumentar/decrementar contador</p>
     <pre><big>
@@ -267,7 +268,14 @@ while(!loggedIn){
         }
     console.log(index);
     }
+
+    //Esto es un shortcut para mostrar los elementos de un array
+    for(let fruit of fruitsS){
+    //console.log(fruit)
+    }
+
     </big></pre>
+
 
     <br><br><hr><br>
 
@@ -499,6 +507,119 @@ const password = generatePassword(
 // Mostramos la contraseña generada:
 console.log(`Generated password: ${password}`);
     </b></pre>
+    
+
+    <br><br><hr><br>
+    <h2>Callbacks</h2>
+    <p>Una función que se pasa como argumento a otra función y se ejecuta dentro de esa función.</p>
+    <p>Se usa para manejar la asincronía, como en peticiones a servidores o eventos.</p>
+    <p>"Hey, cuando termines, llama a esto después."</p>
+
+    <p id = "resultadCall">Reultado</p>
+    <p>Aqui llame a una operacion planteada por código, no mostro resultado hasta que resulva la funcion de la operacion y la realcione con el resultado.</p>
+
+    <pre><big>
+    function <span style="color: rgb(6, 242, 187); background-color: black;">sumar</span>(<span style="background-color: chartreuse;">callback</span>, a, b) {
+    let result = a + b;
+    <span style="background-color: chartreuse;">callback</span>(<span style="background-color: cornflowerblue;">result</span>); 
+    }
+
+    function <span style="color: rgb(34, 6, 242); background-color: rgba(201, 30, 30, 0.602);">displayPage</span>(<span style="background-color: cornflowerblue;">result</span>){
+    document.getElementById("resultadCall").textContent = `The result is: ${ <span style="background-color: cornflowerblue;">result</span>}`;
+    }
+
+    <span style="color: rgb(6, 242, 187); background-color: black;">sumar</span>(<span style="color: rgb(34, 6, 242); background-color: rgba(201, 30, 30, 0.602);">displayPage</span>, 5, 3); 
+    </big></pre>
+
+
+    <br><br><hr><br>
+
+    <h2>For each () loop</h2>
+
+    <p>Método que se usa para iterar sobre los elementos de un array y aplica una función especificada (callback).</p>
+    <p>array.forEach(callback)</p>
+
+    <pre><big>
+        let numbersForEach = [1, 2, 3, 4, 5];
+
+
+numbersForEach.forEach(triple);
+numbersForEach.forEach(display)
+
+
+function triple(element, index, array){
+    array[index] = element * 3;
+}
+
+function display(element){
+    console.log(element);
+}
+    </big></pre>
+    <ol>
+        <li>array</li>
+        <ul>El arreglo que estás recorriendo (numbersForEach = [1, 2, 3, 4, 5]).</ul><br>
+
+        <li>.forEach()</li>
+        <ul> Un método de los arreglos en JavaScript que ejecuta una función (callback) por cada elemento.</ul><br>
+        <li>function(element, index, array)</li>
+        <ul> El callback (una función que se pasa como argumento a forEach). JavaScript automáticamente le pasa 3 parámetros en este orden:
+        <ul><br>
+        <li>element: El valor actual del arreglo.</li>
+        <li>index: La posición de ese elemento (empieza en 0).</li>
+        <li>array: El arreglo completo (por si necesitas referenciarlo).</li>
+        </ul></ul>
+    </ol>
+
+    <br><br><hr><br>
+
+    <h2>.map()</h2>
+
+    <p>Es como un for each, pero este devuleve un nuevo array. y lo podemos alojar con nombre. </p>
+    <p>Esta bien si quieres preservar el array original y crear otro</p>
+    <pre><big>
+    const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+    const formattedDates = dates.map(formatDates);
+
+    console.log(formattedDates)
+
+    function formatDates(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`
+    }
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>.filter()</h2>
+
+    <p>Filtrar cosas,</p>
+    <pre><big>
+        let numersFilter =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let numbersEvenFiltered = numersFilter.filter(isEven);
+
+    console.log(numbersEvenFiltered) //Array(5) [ 2, 4, 6, 8, 10 ]
+
+    //Cogerá los valores true y los colocara en un nuevo array
+    function isEven(element){
+        return element % 2 === 0;
+    }
+    </big></pre>
+    <p>Biene bien por ejemplo para filtrar unas edades para saber si es adulto o en palabras que consideremos menores de x letras "element.length <=6". (en objetos se profundizará).</p>
+
+    <br><br><hr><br>
+
+    <h2>.reduce()</h2>
+    <p>Reduce los elementos de un array a un único valor. Puedes por ejemplo, sumarlos o enocntrar un máximo/mínimo.</p>
+    <pre><big>
+        const grades = [15, 50, 65, 86, 90, 100, 99];
+    const maxmoGrade = grades.reduce(getMax);
+
+    function getMax(accumulator, element){
+        return Math.max(accumulator, element);
+    }
+
+    console.log(`La nota máxima es: ${maxmoGrade}`); // La nota máxima es: 100
+    </big></pre>
 
 
     </main>
