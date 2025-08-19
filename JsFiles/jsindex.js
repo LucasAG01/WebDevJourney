@@ -812,7 +812,7 @@ function sumar(callback, a, b) {
 }
 
 // 3. Llamamos correctamente a sum()
-sumar(displayResultado, 5, 3); 
+//sumar(displayResultado, 5, 3); 
 
 
 //ejemplo en la web
@@ -821,7 +821,7 @@ function displayPage(result){
     document.getElementById("resultadCall").textContent = `The result is: ${result}`;
 }
 
-sumar(displayPage, 5, 3); 
+//sumar(displayPage, 5, 3); 
 
 
 
@@ -831,7 +831,7 @@ let numbersForEach = [1, 2, 3, 4, 5];
 
 
 numbersForEach.forEach(triple); // Ejecuta triple() en cada elemento
-numbersForEach.forEach(display) // Ejecuta display() en cada elemento
+//numbersForEach.forEach(display) // Ejecuta display() en cada elemento
 
 
 function triple(element, index, array){
@@ -846,7 +846,7 @@ function display(element){
 let frutitas = ["apple", "orange", "banana", "coconut"];
 
 frutitas.forEach(capitalize);
-frutitas.forEach(display);
+//frutitas.forEach(display);
 
 function upperCase(element, index, array){
     array[index] = element.toUpperCase();
@@ -869,8 +869,8 @@ const numbersMap =[1, 2, 3, 4, 5];
 const numbersPow = numbersMap.map(square);
 const chavalesSubidos =  chavales.map(arrayUpper)
 
-console.log(numbersPow)
-console.log(chavalesSubidos)
+//console.log(numbersPow)
+//console.log(chavalesSubidos)
 
 function square(element){
     return Math.pow(element, 2);
@@ -882,7 +882,7 @@ function arrayUpper(element){
 const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
 const formattedDates = dates.map(formatDates);
 
-console.log(formattedDates)
+//console.log(formattedDates)
 
 function formatDates(element){
     const parts = element.split("-");
@@ -894,7 +894,7 @@ function formatDates(element){
 let numersFilter =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let numbersEvenFiltered = numersFilter.filter(isEven);
 
-console.log(numbersEvenFiltered)
+//console.log(numbersEvenFiltered)
 
 //Cogera los valores true y los colocara en un nuevo array
 function isEven(element){
@@ -906,8 +906,190 @@ function isEven(element){
 const grades = [15, 50, 65, 86, 90, 100, 99];
 const maxmoGrade = grades.reduce(getMax);
 
-console.log(`La nota máxima es: ${maxmoGrade}`);
+//console.log(`La nota máxima es: ${maxmoGrade}`);
 
 function getMax(accumulator, element){
     return Math.max(accumulator, element);
 }
+
+
+/*Function Expression*/
+
+function Hello(){
+    console.log("Hello");
+}
+
+//setTimeout(Hello, 3000); //setTimeout(callback, 3000); funcion, tiempo hasta  que la lance.
+
+//En JS es posible pasar una funcion entera como un valor, esperara 3 segundos para hacer la suma
+
+setTimeout(function(a, b){
+    let result = a + b;   
+},3000);
+
+//Sumo todos lo valores de un array, no hay timeout, es al momento.
+const totals = numbersArray.reduce(function(accumulator, element){
+    return accumulator + element;
+});
+
+//console.log(totals);
+
+/*Arrow functions*/
+
+const helloO = (name, age) => {console.log(`Hola, eres ${name}`)
+                            console.log(`Tienes ${age} años`)};
+
+//helloO("lucas",23);
+
+const Cuadrados = numbersArray.map((element) => Math.pow(element,2 ));
+
+
+
+
+/*Objetos*/ 
+
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    isEmployed: true, 
+    sayHello: function(){console.log("Hi! I am Spongebob")},
+    eat: function(){console.log("I am eating a krabby Patty")},
+}
+
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 42,
+    isEmployed: false, 
+    sayHello: () => console.log("Hey, Im Patrick..."),
+    eat: () => console.log("I am eating roast beef, chicken, and pizza"),
+}
+
+
+//person1.eat()
+//person2.eat()
+
+
+/*THIS*/ 
+
+const person3 = {
+    name: "kosko",
+    favFood: "polo",
+    sayHello: function(){console.log(`hi, im ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+}
+
+const person4 = {
+    name: "Pisco",
+    favFood: "pipa",
+    sayHello: function(){console.log(`hi, im ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+    //Las arrow functions no funcionan, que siguen haciendo referencia al objeto ventana.
+}
+
+
+/*Constructores*/ 
+
+function Car(make, model, year, color){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.colo = color,
+    this.drive  =function(){console.log(`You drive the ${this.model}`)}
+}
+
+const car1 = new Car("chrevolet","Camaro",1990,"yellow");
+const car2 = new Car("ferrari","Roma",2025,"red");
+const car3 = new Car("Dodge","Charger",2026,"black");
+
+//car2.drive(); // You drive the Roma
+
+
+/*Classes*/
+
+class Products{
+    constructor(name, price){
+        this.name = name,
+        this.price = price;
+    }
+
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: €${this.price.toFixed(2)}`)
+    }
+
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
+    }
+
+}
+
+const IVA = 0.21;
+
+const product1 = new Products("Shirt",29.99);
+const product2 = new Products("Pants",19);
+const product3 = new Products("Underwear",100);
+
+//product1.displayProduct();
+//product2.displayProduct();
+//product3.displayProduct();
+
+const totalTaxed = product2.calculateTotal(IVA);
+//console.log(`Total price (with IVA): €${totalTaxed.toFixed(2)}`)
+
+
+/*Static keyword*/ 
+
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+
+    static getCircumference(radius){
+        return 2 * this.PI * radius;
+    }
+
+    static getArea(radius){
+        return this.PI * radius * radius
+    }
+
+}
+
+//console.log(MathUtil.PI);
+//console.log(MathUtil.getDiameter(10));
+//console.log(MathUtil.getCircumference(10));
+//console.log(MathUtil.getArea(10));
+
+class User{
+
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+
+
+    sayHello(){
+        console.log(`Hello, my name is ${this.username}`);
+    }
+}
+
+const user1 = new User("Spongebob");
+
+console.log(user1.username); //Spongebob
+
+console.log(user1.userCount); //undefined ya que es static
+
+console.log(User.userCount); //1 como es static, tenemos que acceder desde el nombre de la clase, no objeto
+
+user1.sayHello()
+
+User.getUserCount();

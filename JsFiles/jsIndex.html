@@ -621,6 +621,212 @@ function display(element){
     console.log(`La nota máxima es: ${maxmoGrade}`); // La nota máxima es: 100
     </big></pre>
 
+    <br><br><hr><br>
+
+    <h2>Function expressions</h2>
+
+    <p><u>Declaración</u> => Define un bloque de código reusable que realiza una tarea especificada.</p>
+    <p><u>expressions</u> => Una forma de definir funciones como valores o variables, es decir, escribes la funcion como variable para ahorrarte poenr nombres.</p>
+
+    <pre><big>
+    Aquí sumo los numeros de un array let numbersArray = [1, 2, 3, 4, 5, 6];
+
+        const totals = numbersArray.reduce(function(accumulator, element){
+        return accumulator + element;
+        });
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Arrow functions</h2>
+
+    <p>Una manera concisa de escribir function expressions buena para funciones simples que solo usas 1 vez.
+    (parametros) => código.
+    </p>
+    <pre><big>
+        const helloO = (name, age) => {console.log(`Hola, eres ${name}`)
+                            console.log(`Tienes ${age} años`)};
+
+        helloO("lucas",23);
+
+
+        const Cuadrados = numbersArray.map((element) => Math.pow(element,2 ));
+
+        const EvenNums = numbersArray.filter((element) => element % 2 === 0);
+
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Objetos</h2>
+
+    <p>Una colección de propiedades y/o métodos, pueden representar objetos de la vida real.</p>
+    <pre><big>Objeto = {clave:valor,
+        funcion()}</pre></big>
+
+    <pre>   const person1 = {
+        firstName: "Spongebob",
+        lastName: "Squarepants",
+        age: 30,
+        isEmployed: true, 
+        sayHello: function(){console.log("Hi! I am Spongebob")},
+        eat: function(){console.log("I am eating a krabby Patty")},
+    }
+
+    const person2 = {
+        firstName: "Patrick",
+        lastName: "Star",
+        age: 42,
+        isEmployed: false, 
+        sayHello: () => console.log("Hey, Im Patrick..."),
+        eat: () => console.log("I am eating roast beef, chicken, and pizza"),
+    }
+
+
+    person1.eat()
+    person2.eat()
+    </pre>    
+
+    <br><br><hr><br>
+
+    <h2>THIS</h2>
+    <p>Una referencia a un objeto donde THIS es usado, (el objeto depende del cobntexto inmediato) person.name = this.name .</p>
+    
+    <pre><big>
+        const person3 = {
+            name: "kosko",
+            favFood: "polo",
+            sayHello: function(){console.log(`hi, im ${this.name}`)},
+            eat: function(){console.log(`${this.name} is eating ${this.favFood}`)}
+        }
+
+        person3.eat(); //kosko is eating polo
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Constructor</h2>
+    <p>Método especial para definir las propiedades y métodos de objetos.</p>
+
+    <pre><big>
+        function Car(make, model, year, color){
+            this.make = make,
+            this.model = model,
+            this.year = year,
+            this.colo = color,
+            this.drive  =function(){console.log(`You drive the ${this.model}`)}
+        }
+
+        const car1 = new Car("chrevolet","Camaro",1990,"yellow");
+        const car2 = new Car("ferrari","Roma",2025,"red");
+        const car3 = new Car("Dodge","Charger",2026,"black");
+
+        car2.drive(); // You drive the Roma
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Classes</h2>
+    <p>Provee una forma más estructurada y limpia para trabajar con objetos, en comparación con las 
+        funciones de constructores tradicionales ex: static keyword, encapsulation, inheritance.
+    </p>
+
+    <pre><big>
+        class Products{
+        constructor(name, price){
+            this.name = name,
+            this.price = price;
+        }
+
+        displayProduct(){
+            console.log(`Product: ${this.name}`);
+            console.log(`Price: €${this.price.toFixed(2)}`)
+        }
+
+        calculateTotal(salesTax){
+            return this.price + (this.price * salesTax);
+        }
+
+    }
+
+    const IVA = 0.21;
+
+    const product1 = new Products("Shirt",29.99);
+    const product2 = new Products("Pants",19);
+    const product3 = new Products("Underwear",100);
+
+    //product1.displayProduct();
+    product2.displayProduct();
+    //product3.displayProduct();
+
+    const totalTaxed = product2.calculateTotal(IVA); //19
+    console.log(`Total price (with IVA): €${totalTaxed.toFixed(2)}`) //Total price (with IVA): €22.99
+    </big></pre>
+
+
+    <br><br><hr><br>
+
+    <h2>Static</h2>
+    <p>Es un keyword, que define propiedades o métodos que pertenecen a una clase misma en vez de a los objetos creados
+        a partir de esa clase (la clase es dueña de cualquier cosa static, no los objetos).
+    </p>
+
+    <pre>
+    class MathUtil{
+
+        static PI = 3.14159;
+
+        static getDiameter(radius){
+        return radius * 2;
+        }
+
+        static getCircumference(radius){
+            return 2 * this.PI * radius;
+        }
+
+        static getArea(radius){
+            return this.PI * radius * radius
+        }
+    }
+
+//console.log(MathUtil.PI);
+//console.log(MathUtil.getDiameter(10));
+//console.log(MathUtil.getCircumference(10));
+//console.log(MathUtil.getArea(10));
+
+*********************************************************************
+
+class User{
+
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
+    }
+
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+
+
+    sayHello(){
+        console.log(`Hello, my name is ${this.username}`);
+    }
+}
+
+const user1 = new User("Spongebob");
+
+console.log(user1.username); // Spongebob
+
+console.log(user1.userCount); // undefined ya que es static
+
+console.log(User.userCount); // 1 como es static, tenemos que acceder desde el nombre de la clase, no objeto
+
+user1.sayHello() // Hello, my name is Spongebob
+
+User.getUserCount(); // There are 1 users online
+    </pre>
 
     </main>
     <script src="jsindex.js"></script>
