@@ -828,6 +828,286 @@ user1.sayHello() // Hello, my name is Spongebob
 User.getUserCount(); // There are 1 users online
     </pre>
 
+
+    <br><br><hr><br>
+
+    <h2>Inheritance + intro SUPER</h2>
+    <p>Permite a una nueva clasem heredar propiedades y métodos de una clase ya existente (padre -> hijo)
+        Ayuda a la hora de reusar código.  
+    </p>
+    <pre><big>
+        class <span style="background-color: blueviolet; color: white;">Animal</span>{
+    constructor(){
+    this.alive = true;
+    }
+
+    eat(){
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+
+
+class <span style="color: hsl(271, 76%, 53%); background-color: hsl(0, 0%, 91%);">Rabbit</span> extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+    constructor(){  
+        super();
+    this.name = "rabbit";
+}
+    run(){
+        console.log(`this ${this.name} is running`);
+    }
+}
+
+class <span style="color: hsl(40, 100%, 47%); background-color: hsl(0, 0%, 91%);">Fish</span> extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+    constructor(){
+        super();
+    this.name = "Fish";
+    }
+    swim(){
+        console.log(`this ${this.name} is swiming`);
+    }
+}
+
+class <span style="color: hsl(230, 91%, 50%); background-color: hsl(0, 0%, 91%);">Hawk</span> extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+    constructor(){
+        super();
+    this.name = "Hawk";
+    }
+
+    fly(){
+        console.log(`this ${this.name} is flying`);
+    }
+}
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>SUPER</h2>
+
+    <p>Es usada en clase spara llamr al constructor o acceder a las propiedades y métodos de un padre (superclass).</p>
+    <p>this = this object</p>
+    <p>super = the parent</p>
+
+    <p>En el contructor de la clase main, coloco las propiedades que van a ser comunes, por ejemplo el nombre y la edad, esos parametros,
+        se invocan cuando colocas el super();
+    </p>
+
+    <pre><big>
+        class <span style="background-color: blueviolet; color: white;">Animal</span>{
+
+    <span style="color: hsl(331, 91%, 50%); background-color: hsl(0, 0%, 91%);">constructor</span>(name, age) {
+        this.name = name,
+        this.age = age     
+    }
+
+    <span style="color: hsl(230, 91%, 50%); background-color: hsl(0, 0%, 91%);">move</span>(speed){ // función clase PArent
+        console.log(`The ${this.name} moves at speed of ${speed} kmh`);
+    }
+}
+
+class Dog extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+
+    constructor(name, age, runSpeed){
+        <span style="color: hsl(331, 91%, 50%); background-color: hsl(0, 0%, 91%);">super</span>(name, age);
+        this.runSpeed = runSpeed
+    }
+
+    run(){
+        console.log(`${this.name} is running`);
+        super.<span style="color: hsl(230, 91%, 50%); background-color: hsl(0, 0%, 91%);">move</span>(this.runSpeed); //extension de función clase PArent
+    }
+
+}
+
+class Shark extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+
+    constructor(name, age, swimSpeed){
+        <span style="color: hsl(331, 91%, 50%); background-color: hsl(0, 0%, 91%);">super</span>(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
+    swim(){
+        console.log(`${this.name} is swiming`);
+        super.<span style="color: hsl(230, 91%, 50%); background-color: hsl(0, 0%, 91%);">move</span>(this.swimSpeed);
+    }
+
+}
+
+class Loro extends <span style="background-color: blueviolet; color: white;">Animal</span>{
+
+    constructor(name, age, flySpeed){
+        <span style="color: hsl(331, 91%, 50%); background-color: hsl(0, 0%, 91%);">super</span>(name, age);
+        this.flySpeed = flySpeed
+    }
+
+    fly(){
+        console.log(`${this.name} is flying`);
+        super.<span style="color: hsl(230, 91%, 50%); background-color: hsl(0, 0%, 91%);">move</span>(this.flySpeed); 
+    }
+
+}
+
+const loro1 = new Loro("PICO", 5,15);
+const shark1 = new Shark("Jaws", 13, 90);
+const dog1 = new Dog("Nago", 12, 25);
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Getter & Setter</h2>
+
+    <p><u>getter</u> = método especial que hace una propiedad leíble.</p>
+    <p><u>setter</u> = método especial que hace un propiedad editable.</p>
+
+    <p>Cuando hago una clase con su constructor, los getter y setter, sirven como un filtro para eviatr valores basura,
+        como en un rectangulo name = -100000 y age = pizza.
+    </p>
+    <p>Usados en conjunto, validamos y modificamos cuando se está leyendo y editando una porpiedad</p>
+    <p>this._age  ==> el "_" significa que es una propiedad privada que pertenece a la funcion específica esa</p>
+
+    <pre><big>
+        
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName,
+        this.lastName = lastName,
+        this.age = age
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName 
+        }
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName
+        }
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+
+    set age(newAge){
+        if(typeof newAge ==="number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.log("Age must be a non-negative number")
+        }
+    }
+
+    /*
+    Ya están settedas pero cuando las lanzamos por la consola, aparecen undefined aunque pongoiamos el valor correcto,
+    ahora hay que recogerlos para poder asignarlos con los getter
+    */
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get age(){
+        return this._age;
+    }
+
+    //tambien podemos acceder a otras funciones sin que sean una propiedad que exista en el cosntructor.
+    get fullName(){
+        return `${this._firstName} ${this._lastName}`
+    }
+}
+
+
+const person5 = new Person("Kosko","keko",23);
+
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Nested objects</h2>
+
+    <p>Son objetos dentro de otros objetos.</p>
+    <p>Te permite representar estructuras de datos más complejas.</p>
+    <p>Objeto Hijo está detro de Objeto Padre.</p>
+    <p>Person{ Addres{}, ContactInfo{} }</p>
+    <p>ShoppingCart{ Keyboard{}, Mouse{}, Monitor{} }</p>
+
+    <pre><big>
+class Person{
+    
+    constructor(name, age, ...address){
+        this.name = name,
+        this.age = age,
+        this.address = new Address(...address);
+    }
+}
+
+
+class Address{
+
+    constructor(street, city, country){
+        this.street = street,
+        this.city = city,
+        this.country = country
+    }
+}
+
+
+const person7 = new Person("SpongeBob", 30, "124 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");
+
+const person8 = new Person("Patrick", 37, "128 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");                           
+
+const person9 = new Person("Squidward", 37, "126 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");
+
+console.log(person8.address.street);
+
+***********************************************
+
+const person6 = {
+    fullName: "Spongebob Squarepants",
+    age: 30,
+    isStudent: true,
+    hobbies: ["karate", "jellyfishing", "cooking"],
+    addres: {
+        street: "124 Conch St.",
+        city: "Bikini Bottom",
+        country: "Int. Water"
+    }
+}
+
+console.log(person6.fullName);
+console.log(person6.age);
+console.log(person6.hobbies[0]);
+console.log(person6.addres.city)
+
+
+//Recorrer el addres array
+for(const property in person6.addres){
+    console.log(person6.addres[property])
+}
+    </big></pre>
+
+    <br><br><hr><br>
+
+    <h2>Array of objects</h2>
+
+
     </main>
     <script src="jsindex.js"></script>
 </body>

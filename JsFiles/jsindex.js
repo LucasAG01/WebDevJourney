@@ -1084,12 +1084,351 @@ class User{
 
 const user1 = new User("Spongebob");
 
-console.log(user1.username); //Spongebob
+//console.log(user1.username); //Spongebob
 
-console.log(user1.userCount); //undefined ya que es static
+//console.log(user1.userCount); //undefined ya que es static
 
-console.log(User.userCount); //1 como es static, tenemos que acceder desde el nombre de la clase, no objeto
+//console.log(User.userCount); //1 como es static, tenemos que acceder desde el nombre de la clase, no objeto
 
-user1.sayHello()
+//user1.sayHello()
 
-User.getUserCount();
+//User.getUserCount();
+
+
+
+/*inheritance + intro SUPER*/
+
+
+class AnimalS{
+    constructor(){
+    this.alive = true;
+    }
+
+    eat(){
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+
+
+class RabbitS extends AnimalS{
+    constructor(){  
+        super();
+    this.name = "rabbit";
+}
+    run(){
+        console.log(`this ${this.name} is running`);
+    }
+}
+
+class FishS extends AnimalS{
+    constructor(){
+        super();
+    this.name = "Fish";
+    }
+    swim(){
+        console.log(`this ${this.name} is swiming`);
+    }
+}
+
+class HawkS extends AnimalS{
+    constructor(){
+        super();
+    this.name = "Hawk";
+    }
+
+    fly(){
+        console.log(`this ${this.name} is flying`);
+    }
+}
+
+
+const rabbit1 = new RabbitS();
+const fish1 = new FishS();
+const hawk1 = new HawkS();
+
+//rabbit1.eat();
+//fish1.sleep();
+//console.log(rabbit1.alive);
+//rabbit1.run()
+//hawk1.fly()
+
+
+/*Super*/ 
+
+class Animal{
+
+    constructor(name, age) {
+        this.name = name,
+        this.age = age     
+    }
+
+    move(speed){ // función clase PArent
+        console.log(`The ${this.name} moves at speed of ${speed} kmh`);
+    }
+}
+
+class Dog extends Animal{
+
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed
+    }
+
+    run(){
+        console.log(`${this.name} is running`);
+        super.move(this.runSpeed); //extension de función clase PArent
+    }
+
+}
+
+class Shark extends Animal{
+
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
+    swim(){
+        console.log(`${this.name} is swiming`);
+        super.move(this.swimSpeed);
+    }
+
+}
+
+class Loro extends Animal{
+
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed
+    }
+
+    fly(){
+        console.log(`${this.name} is flying`);
+        super.move(this.flySpeed); 
+    }
+
+}
+
+const loro1 = new Loro("PICO", 5,15);
+const shark1 = new Shark("Jaws", 13, 90);
+const dog1 = new Dog("Nago", 12, 25);
+/*
+console.log(loro1.age);
+console.log(dog1.name);
+loro1.fly()
+shark1.swim();
+dog1.run();
+*/
+
+
+
+/*Getter & Setter*/
+
+class Rectangle{
+
+    constructor(width, heigth){
+        this.width = width;
+        this.heigth = heigth
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth
+        }
+        else{
+            console.error("Width must be a positive number")
+        }
+    }
+
+    set heigth(newHeigth){
+        if(newHeigth > 0){
+            this._heigth = newHeigth
+        }
+        else{
+            console.error("Heigth must be a positive number")
+        }
+    }
+
+    /*
+    Ya están settedas pero cuando las lanzamos por la consola, aparecen undefined aunque pongoiamos el valor correcto,
+    ahora hay que recogerlos para poder asignarlos con los getter
+    */
+    
+    get width(){
+        return `${this._width.toFixed(1)}cm`;
+    }
+
+    get heigth(){
+        return `${this._heigth.toFixed(1)}cm`;
+    }
+
+    //tambien podemos acceder a otras funciones sin que sean una propiedad que exista en el cosntructor.
+
+    get area(){
+        return `${(this._width * this._heigth).toFixed(1)}cm^2`;
+    }
+
+}
+
+const rectangle1 = new Rectangle(3, 4);
+
+class PersonS{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName,
+        this.lastName = lastName,
+        this.age = age
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName 
+        }
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName
+        }
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+
+    set age(newAge){
+        if(typeof newAge ==="number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.log("Age must be a non-negative number")
+        }
+    }
+
+    /*
+    Ya están settedas pero cuando las lanzamos por la consola, aparecen undefined aunque pongoiamos el valor correcto,
+    ahora hay que recogerlos para poder asignarlos con los getter
+    */
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get age(){
+        return this._age;
+    }
+
+    //tambien podemos acceder a otras funciones sin que sean una propiedad que exista en el cosntructor.
+    get fullName(){
+        return `${this._firstName} ${this._lastName}`
+    }
+}
+
+
+const person5 = new PersonS("Kosko","keko",23);
+/*
+console.log(person5.firstName)
+console.log(person5.lastName)
+console.log(person5.age)
+console.log(person5.fullName)
+*/
+
+
+/*Objetos anidados Nested*/ 
+
+const person6 ={
+    fullName: "Spongebob Squarepants",
+    age: 30,
+    isStudent: true,
+    hobbies: ["karate", "jellyfishing", "cooking"],
+    addres: {
+        street: "124 Conch St.",
+        city: "Bikini Bottom",
+        country: "Int. Water"
+    }
+}
+/*
+console.log(person6.fullName);
+console.log(person6.age);
+console.log(person6.hobbies[0]);
+console.log(person6.addres.city)
+*/
+
+/*Recorrer el addres array
+for(const property in person6.addres){
+    console.log(person6.addres[property])
+}
+*/
+
+
+
+class Person{
+    
+    constructor(name, age, ...address){
+        this.name = name,
+        this.age = age,
+        this.address = new Address(...address);
+    }
+}
+
+class Address{
+
+    constructor(street, city, country){
+        this.street = street,
+        this.city = city,
+        this.country = country
+    }
+}
+
+
+const person7 = new Person("SpongeBob", 30, "124 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");
+
+const person8 = new Person("Patrick", 37, "128 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");                           
+
+const person9 = new Person("Squidward", 47, "126 Conch St.",
+                            "Bikini Bottom",
+                            "Int. Waters");
+
+//console.log(person8.address.street);
+
+
+
+
+/*Arrays de objetos*/ 
+
+const froitas = [{name:"apple", color: "red", calories: 95},
+                {name:"orange", color: "orange", calories: 45}, 
+                {name:"banana", color: "yellow", calories: 105}, 
+                {name:"coconut", color: "white", calories: 159}, 
+                {name:"pineapple", color: "yellow", calories: 37}];
+
+froitas.push({name: "grapes", color:"purple", calories: 62})
+//froitas.pop(); //borra el último
+//froitas.forEach(fruit =>console.log(fruit)); //recorre y muestra, podemos especificar el que all the
+
+const fruitNames =  froitas.map(fruit => fruit.name);
+const fruitColors = froitas.map(fruit =>fruit.color);
+
+//nuevo array con lo especificado
+const yellowFruits = froitas.filter(fruit => fruit.color === "yellow");
+console.log(yellowFruits);
+
+//reduce
+const maxFruit = froitas.reduce((max, fruit) => 
+                                fruit.calories > max.calories ?
+                                fruit : max);
+
+console.log(maxFruit);
