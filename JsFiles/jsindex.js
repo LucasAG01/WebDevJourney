@@ -1424,11 +1424,184 @@ const fruitColors = froitas.map(fruit =>fruit.color);
 
 //nuevo array con lo especificado
 const yellowFruits = froitas.filter(fruit => fruit.color === "yellow");
-console.log(yellowFruits);
+//console.log(yellowFruits);
 
 //reduce
 const maxFruit = froitas.reduce((max, fruit) => 
                                 fruit.calories > max.calories ?
                                 fruit : max);
 
-console.log(maxFruit);
+//console.log(maxFruit);
+
+
+/*Sorting*/ 
+
+let sortingArray = [1, 23 ,4 , 2, 8, 5, 7]
+sortingArray.sort((a, b) => a - b); // b - a es orden inverso 
+
+//console.log(sortingArray);
+
+//priedades diferntes en objetos 
+froitas.sort((a, b) => a.calories - b.calories);
+
+//obejto con string 
+froitas.sort((a, b) => a.name.localeCompare(b.name));
+
+//console.log(froitas)
+
+
+/* Shuffle an Array */
+
+const cards =['A',2, 3, 4, 5, 6,7 ,8 ,9 ,10, 'J', 'Q', 'K'];
+
+shuffle(cards);
+
+//console.log(cards);
+
+//Fisher-Yates algorithm
+/*
+Pasos del algoritmo:
+
+    1. Empezar desde el último elemento y avanzar hacia el primero
+
+    2. Seleccionar un índice aleatorio entre 0 y el índice actual
+
+    3. Intercambiar el elemento actual con el elemento en la posición aleatoria
+*/
+
+function shuffle(array){
+    //Comienza desde el último elemento hacia el primero
+    for(let index = array.length - 1; index > 0; index--){  
+
+        //Elige un índice aleatorio entre 0 e index (inclusive)      
+        const random = Math.floor(Math.random() * (index + 1));
+
+        // Intercambia los elementos
+        [array[index], array[random]] = [array[random], array[index]]; //swapping
+    }
+}
+
+
+/* Date */
+
+const date = new Date();
+
+const year = date.getFullYear();
+
+const month = date.getMonth();
+
+const dayDate = date.getDate();
+
+const hour = date.getHours();
+
+const dayOfWeek = date.getDay();
+
+date.setFullYear(2026);
+date.setMonth(8);
+date.setDate(22);
+date.setHours(19);
+date.setMinutes(58)
+
+//console.log(date)
+
+const date1 = new Date("2024-12-31");
+const date2 = new Date("2025-12-31");
+
+if(date2 > date1){
+    //console.log("Happy new Year");
+}
+
+
+/* closure */ 
+/*
+En la funcion interior, puede acceder a declñaraciones y llamamientos creados en el exteiorior,
+pero, la exterior no puede acceder a cosas de la inteiori, para poder hacerlo hay que llamar a la inteiroi en le nivel de la exterior 
+si creo una variable mensaje en el exteriori para modificar el mensage, no lo hace, es más, aparece como una diferente, es decir, que las del interior de outer
+
+aparecen como variables privadas, es decir, como de otra dimensión.
+*/
+
+function outer(){
+
+    let message = "hello"
+    function inner(){
+        //console.log(message);
+    }
+
+    inner();  
+}
+
+outer();
+
+function createCOunter(){
+
+    let count  = 0;
+
+    function incremmet(){   
+        count++;
+        //console.log(`El contador ha sido llamdo ${count} vecdes`);
+    }
+
+    function getCount(){
+        return count;
+    }
+
+
+    return {incremmet, getCount} //Esta retornando un objeto con la funcion
+}
+
+const counter = createCOunter();
+//counter.incremmet();
+//counter.incremmet();
+//counter.incremmet();
+//console.log(`The current count is ${counter.getCount()}`)
+
+//de esta forma, aunque crees una variable counter y pongas un numero raro, dira que no hay un counter declarado
+
+
+/*
+function incremmet(){
+    let count  = 0;
+    count++;
+    console.log(`El contador ha sido llamdo ${count} vecdes`);
+}
+incremmet()
+incremmet()
+
+    aunque spamee increment, el constador simepre se resetea y se queda en 1, pero con las enclosure, podemos crear un estado de mantenimiento 
+ */
+
+
+function createGame(){
+    
+    let score = 0;
+
+    function increaseScore(points){
+        score+= points;
+        //console.log(`+${points} pts`);
+    }
+
+    function decreaseScore(points){
+        score-= points;
+        //console.log(`+${points} pts`);
+    }
+
+    function getScore(){
+        return score;
+    }
+
+    return {increaseScore, decreaseScore, getScore}
+}
+
+    //Básicamente, he creado un ciontador, epro se podía modificar en el codigo, así que al meterlo dentro de una funcion gigante
+    //y hacer que devulva en objeto, las function creadas, ya nadie peude tocar en la puntuacion 
+    //Tdos los metodos llamados, tien que tener preciedidod el objeto asociado a la megafunción.
+
+    const game = createGame();
+
+    game.increaseScore(5);
+    game.increaseScore(6)
+    game.decreaseScore(3);
+    
+
+   // console.log(`The final score is ${game.getScore()}`);
