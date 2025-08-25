@@ -1605,3 +1605,89 @@ function createGame(){
     
 
    // console.log(`The final score is ${game.getScore()}`);
+
+
+
+   /*setTimeout()*/
+   
+    let timeOutId;
+
+   function startTimer(){
+    timeOutId = setTimeout(() => window.alert("hello"), 3000);
+   }
+
+   function clearTimer(){
+    clearTimeout(timeOutId);
+   }
+
+
+   /* CLOCK */
+   
+   function updateClock(){
+
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, 0); //tostring y pad es para que haya 2 cifras
+    const minutes = now.getMinutes().toString().padStart(2, 0);
+    const seconds = now.getSeconds().toString().padStart(2, 0);
+
+    const timeString = `${hours}:${minutes}:${seconds}`;
+
+    document.getElementById("clock").textContent = timeString;
+   }
+
+
+   updateClock();
+   setInterval(updateClock,1000);
+
+   
+    /* StopWatch */ 
+
+
+    const display1 = document.getElementById("display");
+    let timer = null; // guarda el valor de intervalo
+    let startTime = 0;
+    let elapsedTime = 0;
+    let isRunning = false;
+
+    function StartWatch(){
+
+        if(!isRunning){
+            startTime = Date.now() - elapsedTime;
+            timer = setInterval(UpdateDisplay, 10);
+            isRunning = true;
+        }
+
+    }
+
+    function StopWatch(){
+
+        if(isRunning){
+            clearInterval(timer);
+            elapsedTime = Date.now() - startTime;
+            isRunning = false;
+        }
+    }
+
+    function ResetWatch(){
+
+   clearInterval(timer);
+    let startTime = 0;
+    let elapsedTime = 0;
+    let isRunning = false;
+    display1.textContent = "00:00:00";
+    }
+
+    function UpdateDisplay(){
+       
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+        let seconds = Math.floor(elapsedTime / 1000 % 60);
+        let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+
+        display1.textContent = `${hours.toString().padStart(2, 0)}:${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}:${milliseconds.toString().padStart(2, 0)}`;
+    }
+
+   

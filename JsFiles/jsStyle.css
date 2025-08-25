@@ -1,8 +1,7 @@
 body{
     background-color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1em;
-    
+    font-size: 1em;       
 }
 
 #lebronDrako{
@@ -108,3 +107,88 @@ body{
     font-size: 1.75em;
     font-weight: bold;
 }
+
+
+
+/* clock */
+
+#clock-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background-image: url("/images/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    /*background-attachment: fixed;*/
+    
+}
+
+#clock{
+    font-size: 6.5em;
+    font-weight: bold;
+    text-align: center;
+    backdrop-filter: blur(1px);
+    width: 100%;
+}
+
+
+/*STOWATCH*/
+
+
+
+#stopWatchCont {
+    display: block; /* Cambia a block */
+    width: fit-content; /* Ancho según contenido */
+    margin: 30px auto; /* Centrado horizontal con margen vertical */
+    padding: 30px;
+    border: 5px solid;
+    border-radius: 50px;
+    background-color: hsl(256, 11%, 74%);
+    text-align: center; /* Centra el contenido interno */
+}
+
+
+#display{
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px;
+    margin-bottom: 25px;
+}
+
+#stopWatchControl button{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: solid;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5 ease;
+}
+
+#startStBtn{
+    background-color: hsl(120, 73%, 75%);
+}
+
+#startStBtn:hover{
+    background-color: hsla(120, 73%, 75%, 0.43);
+}
+
+#stopStBtn{
+    background-color:hsl(0, 79%, 72%);
+}
+
+#stopStBtn:hover{
+    background-color: hsla(0, 79%, 72%, 0.663);
+}
+
+#resetStBtn{
+    background-color: hsl(186, 76%, 47%);
+}
+
+#resetStBtn:hover{
+    background-color: hsla(186, 76%, 47%, 0.323);
+}
+

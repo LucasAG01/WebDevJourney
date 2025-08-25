@@ -1281,6 +1281,59 @@ function createGame(){
  */
     </pre>
 
+    <br><br><hr><br>
+
+    <h2>Timeout</h2>
+
+    <p>Una funcion que permite controlar la ejecucion de una función después de un tiempo determinado.</p>
+    <p>tiempos aproximados.</p>
+    <p>setTimeout(callback, delay en ms)</p>
+
+    <pre><big>
+        let timeOutId;
+
+   function startTimer(){
+    timeOutId = setTimeout(() => window.alert("hello"), 3000);
+   }
+
+   function clearTimer(){
+    clearTimeout(timeOutId);
+    
+   }
+
+   button class="buttonsCoun" onclick="startTimer()">Start< /button>
+   button class="buttonsCoun" onclick="clearTimer()">Stop< /button>   
+    </big></pre>
+    <button class="buttonsCoun" onclick="startTimer()">Start</button>
+    <button class="buttonsCoun" onclick="clearTimer()">Stop</button>
+
+    <br><br><hr><br>
+
+    <h2>Clock</h2>
+
+    <div id ="clock-container">
+        <div id ="clock">00:00:00</div>
+    </div>
+
+    <br><br><hr><br>
+
+    <h2>StopWatch</h2>
+
+    
+    <div id="stopWatchCont">
+            <div id ="display">
+             00:00:00       
+            </div>
+            <div id="stopWatchControl">
+                <button id ="startStBtn" onclick="StartWatch()">Start</button>
+                <button id ="stopStBtn" onclick="StopWatch()">Stop</button>
+                <button id ="resetStBtn" onclick="ResetWatch()">Reset</button>
+            </div>
+
+    </div>
+    
+
+
     </main>
     <script src="jsindex.js"></script>
 </body>
