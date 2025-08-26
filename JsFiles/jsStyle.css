@@ -192,3 +192,60 @@ body{
     background-color: hsla(186, 76%, 47%, 0.323);
 }
 
+
+
+
+/* Calculator */
+
+#calcCont{
+    display: block; /* Cambia a block */
+    width: fit-content; /* Ancho según contenido */
+    margin: 30px auto; /* Centrado horizontal con margen vertical */
+    padding: 30px;
+    border: 5px solid;
+    border-radius: 50px;
+    background-color: hsl(256, 11%, 74%);
+    text-align: center; /* Centra el contenido interno */
+}
+#calculator{
+    font-family: Arial, sans-serif;
+    background-color: rgba(0, 0, 0, 0.532);
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: hidden;
+}
+#displayC{
+    width: 100%;
+    padding:20px;
+    font-size: 5rem;
+    text-align: left;
+    border:none;
+    background-color: rgba(0, 0, 0, 0.532);
+    color: white;
+}
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+.buttonC{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border:none;
+    background-color: hsla(0, 0%, 0%, 0.674);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.buttonC:hover{
+    background-color: hsla(0, 0%, 0%, 0.301);
+}
+
+.buttonC:active{ /*Cuando pulsoo*/
+    background-color: hsla(0, 0%, 0%, 0.517);
+}

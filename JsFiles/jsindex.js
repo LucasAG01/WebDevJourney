@@ -1,3 +1,4 @@
+//import {PI2,getCircumference,getArea, getVolume} from './mathUtil.js';
 /*console.log("HOLA");
 console.log("I like pizza!");
 
@@ -149,7 +150,7 @@ window.addEventListener("load",function(){
 
 let pi= Math.PI; //3 digitos
 //pero para otras cosas que si o ni nadie durante el rpograma pueda cambiar es asi
-const PI = 3.14159;
+//const PI = 3.14159;
 
 //radious = window.prompt("Dame el radio del círculo: ");
 
@@ -1690,4 +1691,71 @@ function createGame(){
         display1.textContent = `${hours.toString().padStart(2, 0)}:${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}:${milliseconds.toString().padStart(2, 0)}`;
     }
 
-   
+
+    
+    /* ES6 Modules */ 
+
+    //import {} from './mathUtil'; dentro de los {} escribo lo que importo
+    //import {PI, getCircumference, getArea, getVolume} from './mathUtil';
+    //DEBE IR ARRIBA 
+
+    //Ahora puedo usar estas funciones ocmo si feruan parte de este JS
+    /*
+    //console.log(PI);
+    const circumference = getCircumference(10);
+    const area = getArea(10);
+    const volume = getVolume(10);
+
+    //console.log(`${circumference.toFixed(2)}cm`);
+    //console.log(`${area.toFixed(2)}cm^2`);
+    //console.log(`${volume.toFixed(2)}cm^3`);
+
+    */
+    /*  Asynchronus code  */ 
+
+    //Co callbacks hacemos que hasta que lña task 1 no termine, no no hagan el resto
+    function func1(callback) {
+      setTimeout(() => {
+        console.log("Task 1");
+        callback();
+      }, 3000);
+    }
+
+    function func2() {
+      console.log("Task 2");
+      console.log("Task 3");
+      console.log("Task 4");
+    }
+
+    //func1(func2);
+    
+
+
+    /*  Error Handling  */
+    
+
+    /* Calculator */
+
+    const displayC = document.getElementById("displayC");
+
+    function appendToDisplay(input){
+        displayC.value += input;
+    }
+
+    function calculate(){
+        try{
+        displayC.value = eval(displayC.value)
+
+
+        }
+        catch(error){
+            displayC.value = "Error"
+        }
+    }
+
+    function clearDisplay(){
+    displayC.value = "";
+    }
+
+
+

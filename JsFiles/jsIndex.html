@@ -1333,8 +1333,111 @@ function createGame(){
     </div>
     
 
+    <br><br><hr><br>
 
-    </main>
+    <h2>ES6 Modules</h2>
+
+    <p>Es un archivo externo que contiene codigo reusable que puede ser importado en otros archivos de Js.</p>
+    <p>Escribe código reusable para diferntes apps.</p>
+    <p>Puede contener variables, classes, funciones ... y más.</p>
+    <p>Añado type = "module" en la zona script dfe importacion de files.</p>
+
+    <pre><big>
+    import {} from './mathUtil'; dentro de los {} escribo lo que importo
+    import {PI, getCircumference, getArea, getVolume} from './mathUtil';
+    DEBE IR ARRIBA del docuemnto JS
+
+    //Ahora puedo usar estas funciones ocmo si feruan parte de este JS
+    </big></pre>
+
+    <p style="font-size: 2rem;"> Problema serio con las importaciones que hay que  arreglar, anula el js principal (jsindex.js).</p>
+    
+
+    <br><br><hr><br>
+
+    <h2>Asynchronous code</h2>
+
+    <p>Permite que múltiples operaciones sean realizadas concurrentemente sin esperar, no bloquea
+        el flujo de ejecución del programa (I/O operacion, network requests, fetching data) 
+    </p>
+    <p>Se controla con Callbacks, Promises, Async/Await</p>
+
+    <br><br><hr><br>
+
+    <h2>Error handling</h2>
+
+    <p>Un objeto que es creado para mostrar un problema que sucede durante el fluir del programa.</p>
+    <p>Sucede a menudo cuando un usuario queire hacer un input o establecer una conexión.</p>
+
+    <p>* try { } = Encierra codigo que potencialmente pueda tener un error.</p>
+    <p>* catch (error) { } = Atrapa y maneja el error de try{ }.</p>
+    <p>* finally { } = (opcional) Siempre ejecuta. Usado mayormente para limpiar ex. cerrar archivos, conexiones, liberar recursos.</p> 
+    <pre><big>
+     try{
+        const dividend = window.prompt("dividendo:");
+        const divisor = window.prompt("Divisor:");
+
+        if (divisor == 0){
+        throw new Error("NOOO");
+        }
+
+        const result = dividend / divisor;
+        console.log(result);
+        
+    }catch(error){
+        console.error(error)
+    }
+        
+     </big>
+    </pre>
+
+    <br><br><hr><br>
+
+    <h2>Calculator (trash)</h2>
+
+    <div id = "calcCont">
+        <div id = "calculator">
+            <input id="displayC" readonly>
+            <div id ="keys">
+                <button style ="background-color: orange;"  class="buttonC" onclick="appendToDisplay('+')">+</button>
+                <button class="buttonC" onclick="appendToDisplay('7')">7</button>
+                <button class="buttonC" onclick="appendToDisplay('8')">8</button>
+                <button class="buttonC" onclick="appendToDisplay('9')">9</button>
+                <button style ="background-color: orange;" class="buttonC" onclick="appendToDisplay('-')">-</button>
+                <button class="buttonC" onclick="appendToDisplay('4')">4</button>
+                <button class="buttonC" onclick="appendToDisplay('5')">5</button>
+                <button class="buttonC" onclick="appendToDisplay('6')">6</button>
+                <button style ="background-color: orange;" class="buttonC" onclick="appendToDisplay('*')">*</button>
+                <button class="buttonC" onclick="appendToDisplay('1')">1</button>
+                <button class="buttonC" onclick="appendToDisplay('2')">2</button>
+                <button class="buttonC" onclick="appendToDisplay('3')">3</button>
+                <button style ="background-color: orange;" class="buttonC" onclick="appendToDisplay('/')">/</button>
+                <button class="buttonC" onclick="appendToDisplay('0')">0</button>
+                <button class="buttonC" onclick="appendToDisplay('.')">.</button>
+                <button class="buttonC" onclick="calculate()">=</button>
+                <button style ="background-color: orange;" class="buttonC" onclick="clearDisplay()">C</button>
+
+            </div>
+        </div>
+    </div>
+
+     <br><br><hr><br>
+
+    <h2>DOM  <small><sub>(introducción)</sub></small></h2>
+    <p>El DOM es un Object que representa la página que estás viendo en tu web browser y porporciona
+        a ti una API para que puedas interactuar.</p>
+    <p>El navegador construye el DOM cuando acrga el html doc, y estructura todos los elementos en forma de árbol.</p>
+    <p>JS puede acceder al DOM de forma dinámica, cambiando el contenido, estructura, y estilo de la página web.</p>    
+    <img src="../images/DOM.png" alt="DOM" style="max-width: 100%;
+                                                  height: auto;
+                                                  display: block;
+                                                  margin: 0 auto;
+                                                  border: 1px solid #ddd;">
+                                                                                
+
+
+
+</main>
     <script src="jsindex.js"></script>
 </body>
 </html>
