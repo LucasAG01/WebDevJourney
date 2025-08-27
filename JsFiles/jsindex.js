@@ -1758,4 +1758,83 @@ function createGame(){
     }
 
 
+    /* element selector */ 
+
+    const myH3ading = document.getElementById("my-H3ading"); 
+
+    if (myH3ading) {
+      myH3ading.style.backgroundColor = "";
+      myH3ading.style.textAlign = "center";
+    } else {
+      console.error("Element with ID 'my-H3ading' not found");
+    }
+
+
+    const frutasS = document.getElementsByClassName("frutasS");
+
+    //frutasS[2].style.backgroundColor = "yellow";
+
+
+   for (let fruta of frutasS){
+    fruta.style.backgroundColor = "yellow";
+   }
+
+   //Ttypecast en un Array para poder usar foreach
+   Array.from(frutasS).forEach(fruit =>{
+    fruit.style.backgroundColor = "yellow";
+   })
+
+
+
+   const h4Elements = document.getElementsByTagName("h4");
+   //console.log(h4Elements);
+
+   const liElement = document.getElementsByTagName("li");
+   //console.log(liElement);
+
+
+   for (let h4Element of h4Elements){
+    h4Element.style.backgroundColor = "yellow";
+   }
+
+   //Selecciona el primer 
+   const firstH4 = document.querySelector("h4");
+
+   //console.log(firstH4);
+
+   //Devuelve una Nodelist, es como un Array en el sentido de lista de cosas, pero es estática y, además, tiene sus propios
+   //built-in metodos, como el foreach
+   const foodiess = document.querySelectorAll("li");
+        /*
+            foodiess.forEach(food =>{
+                food.style.backgroundColor = "yellow";
+            });
+    */
+
+
+
+
+
+    /* NAvegar por el DOM */
+
+// Para el primer selector, siempre verifica primero
+const element = document.querySelector("h2");
+//const element = document.getElementById("navDOM");
+
+if (element) {
+    //element.style.backgroundColor = "blue";
+} else {
+    console.warn("Elemento no encontrado:", "h2");
+}
+
+
+//Al ultimo.
+const element2 = document.getElementById("navDOM");
+const lastChild = element2.lastElementChild;
+//lastChild.style.backgroundColor ="yellow";
+
+
+/* dsd */
+
+
 

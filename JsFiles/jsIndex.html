@@ -1433,9 +1433,264 @@ function createGame(){
                                                   display: block;
                                                   margin: 0 auto;
                                                   border: 1px solid #ddd;">
-                                                                                
+    
+    <br><br><hr><br>
+
+    <h2>Element selectors</h2>
+
+    <p>Métodos usados para seleccionar y manipular elementos HTML.</p>
+    <p>Los seleccionas desde el DOM.</p>
+
+   <h3 id="my-H3ading">Food R Us</h3>
+
+   <p>Esto forma una html collection, como un array de frutasS en este caso.</p>
+   <p>div class = "frutasS">Apple /div></p>
+   <div class = "frutasS">Apple</div>    
+   <div class = "frutasS">Orange</div>     
+   <div class = "frutasS">Banana</div>     
+
+   <pre><big> 
+    // En este caso lo pinta de amarelo.
+
+    const frutasS = document.getElementsByClassName("frutasS");
+    
+    for (let fruta of frutasS){
+     fruta.style.backgroundColor = "yellow";
+    }
 
 
+    // Ttypecast en un Array para poder usar foreach.
+
+   Array.from(frutasS).forEach(fruit =>{
+    fruit.style.backgroundColor = "yellow";
+   })
+   </big></pre>
+
+   <h4>Root Vegetables</h4>
+   <ul>
+        <li>Beets</li>
+        <li>Carrots</li>
+        <li>Potatoes</li>
+   </ul>
+
+   <h4>NON-Root Vegetables</h4>
+   <ul>
+        <li>Brocoli</li> 
+        <li>Celery</li>
+        <li>Onion</li>
+   </ul>
+<pre><big>
+   const h4Elements = document.getElementsByTagName("h4");
+   console.log(h4Elements);
+
+   const liElement = document.getElementsByTagName("li");
+   console.log(liElement);
+
+
+   for (let h4Element of h4Elements){
+    h4Element.style.backgroundColor = "yellow";
+   } 
+
+   </big></pre>
+
+   Selecciona el primer 
+   <pre><big> const firstH4 = document.querySelector("h4");</big></pre> 
+
+
+   Devuelve una Nodelist, es como un Array en el sentido de lista de cosas, pero es estática y, además, tiene sus propios
+   built-in metodos, como el foreach
+   <pre><big> const foodiess = document.querySelectorAll("li");
+
+            foodiess.forEach(food =>{
+                food.style.backgroundColor = "yellow";
+            });
+   </big></pre>
+   
+
+     <br><br><hr><br>
+
+    <h2>DOM navigation</h2>
+
+   <p>Es el proceso de navegar a través de la estructura de un documento HTML usando JS.</p>
+   
+   <h5><big>Lista de métodos:</big> <pre><big>usándolos como ejemplo. li id="navDOM"</big></pre></h5>
+   <ul id = "navDOM">
+        <li id="elemento1">.firstElementChild</li>
+        <li id="elemento2">.lastElementChild (el ultmo)
+            <pre>
+            const element2 = document.getElementById("navDOM");
+            const lastChild = element2.lastElementChild;
+            lastChild.style.backgroundColor ="yellow";
+            </pre>
+        </li id="elemento3">
+        <li id="elemento4">.nextElementSibling (el siguiente hermano al seleccionado)</li>
+        <pre>
+            const element4 = document.getElementById("elemento4");
+            const next = element4.nextElementSibling;
+            next.style.backgroundColor ="yellow"; (se pinta elemento5)
+        </pre>
+        <li id="elemento5">.previousElementSibling</li>
+        <pre>
+            const element4 = document.getElementById("elemento4");
+            const previousChild = element4.previousElementSibling;
+            previousChild.style.backgroundColor ="yellow"; (se pinta elemento3)
+        </pre>
+        <li id="elemento6">.parentElement</li>
+        <pre>
+            const element = document.getElementById("elemento4");
+            const parent = element4.parentElement;
+            parent.style.backgroundColor ="yellow"; (se pinta ul osea navDOM ya que elemto4 es li)
+        </pre>
+        <li id="elemento7">.children</li>
+        <pre>
+            const element = document.getElementById("navDOM");
+            const children = element4.children;
+            children.style.backgroundColor ="yellow"; (se pinta elemto1, elemto2, elemto3, elemto4 ya que es li,
+                                                       ya que el padre es ul osea navDOM)
+        </pre>
+   </ul>
+
+<br><br>
+<hr><br>
+
+<h2>Add & change HTML</h2>
+<pre><big>
+            //html                                              //css
+&lt;div id="box1" class="box"&gt;                                .box{
+    &lt;p&gt;Box1&lt;/p&gt;                                               border: 3px solid;      
+&lt;/div&gt;                                                        width: 100%;
+&lt;div id="box2" class="box"&gt;                                   height: 125px;
+    &lt;p&gt;Box2&lt;/p&gt;                                              }   
+&lt;/div&gt;
+&lt;div id="box3" class="box"&gt;
+     &lt;p&gt;Box3&lt;/p&gt;           
+&lt;/div&gt;
+&lt;div id="box4" class="box"&gt;
+    &lt;p&gt;Box4&lt;/p&gt;
+&lt;/div&gt;
+</big>        
+</pre>
+<h4>Example 1</h4>
+
+<ol>
+    <li>Create the element</li>
+    <pre><big>const newH1 = document.createElement("h1");</big></pre>
+
+
+    <li>Add attribute / properties</li>
+    <pre><big>newh1.textContent = "I like pizza";
+newH1.id = "myH1";
+newH1.style.color = "tomato";
+newH1.style.textAlign = "center";
+</big>
+        </pre>
+    <li>Append element to DOM</li>
+    <pre><big>document.body.append("newH1");</big> <b>último H1 del doc</b>
+<big>document.body.prepend("newH1");</big> <b>primer H1 del doc</b>
+
+
+    <b>Opción para hacer que sea hijo de box1 y aparezca dentro de la box1:</b>
+<big>document.getElementById("box1").append(newH1);</big>
+
+    <b>con prepend estaria dentro e la caja pero antes que la palabra Box1.</b>    
+<big>
+    &lt;div id="box1" class="box"&gt;                               
+        &lt;p&gt;Box1&lt;/p&gt;
+        &lt;h1&gt;I like pizza&lt;/h1&gt;                                                     
+    &lt;/div&gt; 
+</big>
+
+   <b> Poner el h1 entre box1 y box 2, pero sin estar 
+    dentro de ninguna de las cajas.</b>
+<big>
+const box2 = document.getElementById("box2");
+document.body.insertBefore(newH1, box2);
+</big>
+
+
+    <b>Seleccionar los elementos pero si no tenemes IDs pero sí clases. 
+    (genera un Nodelist de las boxes class).</b>
+<big>
+const boxes = document.querySelectorAll(".box");   
+document.body.insertBefore(newH1,boxes [0]);
+</big>
+        </pre>
+</ol>
+
+<ul>
+    <li>Remove HTML element</li>
+    <pre><big>document.body.removeChild(newH1);</big>
+
+<b>Body no deja de ser un "Abuelo", podemos usar:</b>
+<big>document.getElementById("box1").removeChild(newH1);</big>         
+        </pre>
+
+</ul>
+<h4>Example 2</h4>
+
+<pre><big>
+        //html                                              //css
+&lt;ol id="fruits"&gt;                                #fruits{
+    &lt;li id="apple"&gt;apple&lt;/li&gt;                       border: 3px solid;      
+    &lt;li id="orange"&gt;orange&lt;/li&gt;                     font-size: 2rem; 
+    &lt;li id="banana"&gt;banana&lt;/li&gt;                     }       
+&lt;/ol&gt;                                                                                                       
+    </pre></big>
+
+<ol>
+    <li>Create the element</li>
+    <pre><big>const newListItem = document.createElement("li");</big></pre>
+
+
+    <li>Add attribute / properties</li>
+    <pre><big>newListItem.textContent = "coconut";
+newListItem.id = "coconut";
+newListItem.style.fontweight = "bold";
+newListItem.style.background = "lightgreen";
+</big>
+        </pre>
+    <li>Append element to DOM</li>
+    <pre><big>document.body.append("newListItem");</big> <b>último list comp del doc</b>
+<big>document.body.prepend("newListItem");</big> <b>primer list comp del doc</b>
+            <b>ambos fuera de fruits</b>
+
+
+    <b>Opción para hacer que sea hijo de fruits y aparezca como 4 item en la lista:</b>
+<big>document.getElementById("fruits").append(newListItem);</big>
+
+    <b>con prepend estaria el 1 de la lista. exjemplo visual, esto no se vé.</b>    
+<big>
+&lt;ol id="fruits"&gt;      
+    &lt;li id="coconut"&gt;coconut&lt;/li&gt;                             
+    &lt;li id="apple"&gt;apple&lt;/li&gt;                            
+    &lt;li id="orange"&gt;orange&lt;/li&gt;                      
+    &lt;li id="banana"&gt;banana&lt;/li&gt;                             
+&lt;/ol&gt; 
+</big>
+
+
+   <b>Podemos usar los DOM navigation para mejorar el posicionamiento,
+   así lo colocamos antes de orange.</b>
+<big>
+const orange = document.getElementById("orange");
+document.body.insertBefore(newListItem, orange);
+</big>
+
+
+    <b>Seleccionar los elementos pero si tenemes IDs de listas . 
+    (genera un Nodelist de las fruits class).</b>
+<big>
+const listItems = document.querySelectorAll("#fruits li");   
+document.getElementById("fruits").insertBefore(newListItem, listItems[1]);
+</big>
+        </pre>
+</ol>
+
+<ul>
+    <li>Remove HTML element</li>
+    <pre><big>document.getElementById("fruits").removeChild(newListItem);</big>        
+        </pre>
+</ul>
 
 </main>
     <script src="jsindex.js"></script>
