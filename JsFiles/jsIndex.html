@@ -1692,6 +1692,124 @@ document.getElementById("fruits").insertBefore(newListItem, listItems[1]);
         </pre>
 </ul>
 
+
+
+<br><br><hr><br>
+
+    <h2>Mouse Events</h2>
+
+    <p>EventListener => Escucha eventos específicos para crear páginas web interactivas.</p>
+    <p><u>Eventos</u>: click, mouseover, mouseout...</p>
+    <p>.addEventListener(event, callback);</p>
+
+   
+
+    <div id="myBox">
+        Click me 😊
+    </div>
+    <button id="myButton">Click Me</button>
+
+    <br><br><hr><br>
+
+    <h2>Key Events</h2>
+
+    <p>EventListener => Escucha eventos específicos para crear páginas web interactivas.</p>
+    <p><u>Eventos</u>: keydown, keyup.</p>
+    <p>document.addEventListener(event, callback);</p>
+
+    <div id="game-area">
+        <div id="myBoxKey">😁</div>
+    </div>
+    <br><br><hr><br>
+
+    <h2>Hide / show HTML</h2>
+
+    <button id="Hidebtn">Hide</button><br>
+
+    <img id="buggyHide" src="../images/buggy_screaming.png" alt="buggy screaming" width="400px">
+
+    <br><br><hr><br>
+
+    <h2>NodeList</h2>
+    <p>Es una coleccion estática de elementos HTML.</p>
+    <p>Puede ser creada usando querySelectorAll()</p>
+    <p>Similar a una array, pero no tiene (map, filter, reduce)...</p>
+    <p>NodeList no se actualiza automáticamente para reflejar los cambios.</p>
+
+    
+    <button class="nodeBtn">Boton 1</button>
+    <button class="nodeBtn">Boton 2</button>
+    <button class="nodeBtn">Boton 3</button>
+    <button class="nodeBtn">Boton 4</button>
+
+
+    <br><br><hr><br>
+
+    <h2>ClassList</h2>
+
+    <p>Prpoiedad en JS usada para interactuar diámicamente con elemntos de una lista de class (CSS classes).</p>
+    <p>Te permitehacer clases reusables para muchos elementos a través de tu Web.</p>
+    <p>También podemos meter en la calse cosas que no sena botones y hagan lo mismo.</p>
+
+    <ul>
+        <li>add()</li>
+        <li>remove()</li>
+        <li>toggle(Remove if present, add if not)</li>
+        <li>replace(oldClass, newClass)</li>
+        <li>contains()</li>
+    </ul>
+
+    <p>Extra:</p>
+    <p>Si creamos unos botones, y los metemos en una clase .myButtons, podemos meterlos en la clase .enabled así:</p>
+
+    <pre><big>
+        let botones = document.querySelectorAll(".myButtons");
+
+        botones.forEach(boton =>{
+            boton.classList.add("enabled")
+        });
+
+        <b>// Esto hace que cuando apses el raton por encima cambie y vuelva atras cuando lo saques.</b>
+        botones.forEach(boton =>{
+            boton.addEventListener("mouseover", event =>{
+                event.target.classList.toggle("hover");
+            });
+        });
+
+        botones.forEach(boton =>{
+            boton.addEventListener("mouseout", event =>{
+                event.target.classList.toggle("hover");
+            });
+        });
+
+         <b>// Esto hace que cuando hagas click, cambies la clase .enabled por la .disabled.</b>
+
+        botones.forEach(boton =>{
+            boton.addEventListener("click", event =>{
+                event.target.classList.replace("enabled", "disabled");
+            });
+        });
+
+        <b>// Modificacion de los anterior, pero ahora si detecta que está en disabled, cambiamos texto.</b>
+
+        botones.forEach(boton =>{
+            boton.addEventListener("click", event =>{
+
+                if(event.target.classList.contains("diabled")){
+                    event.target.textContent += "☠️"
+                }
+                else{
+                    event.target.classList.replace("enabled","disabled");
+                }                            
+            });
+        });
+
+
+    </big></pre>
+
+    <button id="ClsLiBtn">My button</button>
+
+
 </main>
     <script src="jsindex.js"></script>
 </body>

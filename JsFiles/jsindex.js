@@ -1834,7 +1834,210 @@ const lastChild = element2.lastElementChild;
 //lastChild.style.backgroundColor ="yellow";
 
 
-/* dsd */
+/* Mouse Events */
 
 
+
+const myBox = document.getElementById("myBox");
+const myButton = document.getElementById("myButton");
+
+myButton.addEventListener("click",function() {
+    myBox.style.backgroundColor ="tomato"
+    myBox.textContent = "ouch 😒"
+})
+
+/*
+myButton.addEventListener("click",function() {
+    this.style.backgroundColor ="tomato"
+    this.textContent = "ouch 😒"
+})
+
+myBox.addEventListener("click", event =>{
+    event.target.style.backgroundColor ="tomato"
+    event.target.textContent ="ouch 😒"
+});
+*/
+ //He creado un botón y asignado a una constante, puedo ahcer que al pasar el raton por encima del botón, 
+ //cambie la box que está enlazada al evento
+
+myButton.addEventListener("mouseover", event =>{
+    myBox.style.backgroundColor ="yellow"
+    myBox.textContent = "Don't do it 😥"
+});
+
+myButton.addEventListener("mouseout", event=>{
+    myBox.style.backgroundColor ="lightgreen";
+    myBox.textContent="Click me 😊";
+})
+
+
+/* key events */ 
+
+const myBoxKey = document.getElementById("myBoxKey");
+const moveAmount = 10;
+let moveX =0;
+let moveY =0;
+
+/*
+document.addEventListener("keydown", event =>{
+    myBoxKey.textContent ="😶‍🌫️"
+    myBoxKey.style.backgroundColor ="tomato";
+});
+*/
+
+document.addEventListener("keydown", event =>{
+    myBoxKey.textContent ="😶‍🌫️"
+    myBoxKey.style.background= "linear-gradient(45deg, #780808ff, #9d9895ff)";
+
+
+    if(event.key.startsWith("Arrow")){
+        
+        event.preventDefault()
+        switch(event.key){
+
+            case "ArrowUp":
+                moveY -= moveAmount;
+                break;
+            case "ArrowDown":
+                moveY += moveAmount;
+                break;
+            case "ArrowLeft":
+                moveX -= moveAmount;
+                break;
+            case "ArrowRight":
+                moveX += moveAmount;
+                break;
+        }
+        myBoxKey.style.top =`${moveY}px`;
+        myBoxKey.style.left =`${moveX}px`;             
+    }
+});
+
+
+
+document.addEventListener("keyup", event =>{
+    myBoxKey.textContent ="😁"
+    myBoxKey.style.background= "linear-gradient(45deg, #92e341ff, #1d3db0ff)";
+});
+
+
+
+const Hidebtn = document.getElementById("Hidebtn");
+const buggyHide = document.getElementById("buggyHide");
+
+Hidebtn.addEventListener("click", event =>{
+
+    //para reservar el espacio de la imagen buggyHide.style.visibility ==="hiden" o visible
+
+    if(buggyHide.style.display ==="none"){
+        buggyHide.style.display = "block";
+        Hidebtn.textContent ="Hide";
+
+    }else{
+        buggyHide.style.display ="none";
+        Hidebtn.textContent ="Show";
+    }    
+});
+
+
+/* NodeList */ 
+
+let botones = document.querySelectorAll(".nodeBtn");
+
+// ADD HTML/CSS PROPERTIES
+
+/*
+botones.forEach(boton => {
+    boton.style.backgroundColor ="lightgreen";
+    boton.textContent ="🧌";
+});
+*/
+
+// CLick event Listener
+
+botones.forEach(boton =>{
+    boton.addEventListener("click", evento =>{
+        evento.target.style.backgroundColor ="tomato";
+    });
+});
+
+// MouseOver + MouseOut event 
+
+botones.forEach(boton =>{
+    boton.addEventListener("mouseover", evento =>{
+        evento.target.style.backgroundColor ="hsla(195, 63%, 63%, 1.00)";
+    });
+});
+
+botones.forEach(boton =>{
+    boton.addEventListener("mouseout", evento =>{
+        evento.target.style.backgroundColor ="lightblue";
+    });
+});
+
+
+//ADD an ELEMENt
+
+const newButton = document.createElement("button");  //Step 1 create
+
+//Add attributes
+newButton.textContent ="Boton 5";
+newButton.classList = "nodeBtn";
+
+//Append al DOM
+
+ //document.body.appendChild(newButton);
+
+//No se añade al NodeList de botones en el que tenemos las cosas modificadas, hay que volver a reasignar
+
+botones = document.querySelectorAll(".nodeBtn");
+
+console.log(botones)
+
+
+//remove
+
+botones.forEach(boton =>{
+    boton.addEventListener("click", event =>{
+        event.target.remove();
+        botones = document.querySelectorAll(".nodeBtn");
+        console.log(botones)
+    });
+});
+
+
+
+/* ClassList */
+
+const ClsLiBtn = document.getElementById("ClsLiBtn");
+
+ClsLiBtn.classList.add("enabled"); /*Una clase de CSS*/
+
+
+//ClsLiBtn.classList.remove("enabled");
+
+
+
+ClsLiBtn.addEventListener("mouseover", event =>{
+    event.target.classList.toggle("hover");
+    //event.target.classList.add("hover");
+});
+
+ClsLiBtn.addEventListener("mouseout", event =>{
+    event.target.classList.toggle("hover");
+    //event.target.classList.remove("hover");
+});
+
+
+ClsLiBtn.addEventListener("click", event =>{
+
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent +="╰（‵□′）╯"
+    }
+    else{
+        event.target.classList.replace("enabled","disabled");
+    }
+
+    //CLiclas y si no esta disbled, se pasa a disables, pero si está disables, le añade eso.
+});
 
