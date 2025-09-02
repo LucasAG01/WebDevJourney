@@ -1810,6 +1810,103 @@ document.getElementById("fruits").insertBefore(newListItem, listItems[1]);
     <button id="ClsLiBtn">My button</button>
 
 
+
+    <br><br><hr><br>    
+    <h2>Rock Paper Scissors</h2>
+
+    <div id ="rpsc">
+
+    <div class="choices">
+    <button onclick="playGame('rock')">👊</button>
+    <button onclick="playGame('paper')">✋</button>
+    <button onclick="playGame('scissors')">✌️</button>
+    </div>
+
+    <div id="playerDisplay">Player:</div>
+    <div id="computerDisplay">Computer:</div>
+    <div id="resultDisplay"></div>
+
+    <div class="scoreDisplay">Player Score:
+        <span id="playerScoreDisplay">0</span>
+    </div>
+
+     <div class="scoreDisplay">Computer Score:
+        <span id="computerScoreDisplay">0</span>
+    </div>
+    </div>
+
+    
+    <br><br><hr><br>    
+    <h2>Image Slider</h2>
+
+    <div class="slider">
+        <div class="slides">
+            <img class="slide" src="../images/nanooo.jpg" alt="Image #1">
+            <img class="slide" src="../images/buggy1.png" alt="Image #2">
+            <img class="slide" src="../images/buggy_screaming.png" alt="Image #3">
+        </div>
+        <button class ="prev" onclick="prevSlide()">&#10094</button>
+        <button class="next" onclick="nextSlide()">&#10095</button>
+    </div>
+
+
+    <br><br><hr><br>    
+    <h2>CallBack Hell</h2>
+    <p>Es una situacion en JS donde los callbacks están anidados dentro de otros callbacks hasta el punto de 
+        que el código es difícil de leer.
+    </p>
+    <p>Patrón antiguo para manejar funciones asíncronas.</p>
+    <p>Usa Promises + async/wait para evitar el Callback Hell .</p>
+    <p>A partir de 3 - 4 es cuando entramos en territorio feo.</p>
+
+    <img src="../images/callbackHell.png" alt="callbackHell" width="500px" style="padding-top: 30px;">   
+    <pre><big>
+                    /* Ejemplo callBAck Hell*/
+                    
+   /*En este caso, hicimos que unas tareas que se tardan diferentes tiempos en ejecutarse, se pudieran
+    Ejecutar en el orden indicado respetando sus tiempos de jecucion igualmente.*/
+
+function task1(callBAck){
+    setTimeout(()=>{
+        console.log("task 1 complete");
+        callBAck();
+    },3000);
+}
+
+function task2(callBAck){
+    setTimeout(()=>{
+        console.log("task 2 complete");
+        callBAck();
+    },1500);
+}
+
+function task3(callBAck){
+    setTimeout(()=>{
+        console.log("task 3 complete");
+        callBAck();
+    },1000);
+}
+
+function task4(callBAck){
+    setTimeout(()=>{
+        console.log("task 4 complete");
+        callBAck();
+    },2000);
+}
+
+
+                    /*ejemplo directo*/
+task1(()=>{
+    task2(()=>{
+        task3(()=>{
+            task4(()=> console.log("All tasks competed!"));
+        });
+    });
+}); 
+    </big></pre>
+
+
+
 </main>
     <script src="jsindex.js"></script>
 </body>

@@ -335,3 +335,115 @@ body{
     box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.236);
     font-weight: bold;
 }
+
+
+
+
+
+
+/* Rock Paper Scissors */
+
+#rpsc{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choices{
+    margin-bottom: 30px;
+}
+
+.choices button{
+    font-size: 7.5rem;
+    min-width: 160px;
+    margin: 0 10px;
+    border-radius: 250px;
+    background-color: hsl(200, 100%, 50%);
+    cursor: pointer;
+    transition: background-color 0.5 ease;
+}
+
+.choices button:hover{
+    background-color:hsl(200, 100%, 70%); 
+}
+
+#playerDisplay,#computerDisplay{
+    font-size: 2.5rem;
+}
+
+#resultDisplay{
+    font-size: 5rem;
+    margin: 30px 0;
+}
+.scoreDisplay{
+    font-size: 2rem;
+
+}
+
+.greenText, #playerScoreDisplay{
+    color: hsl(130, 84%, 54%)
+}
+
+.redText, #computerScoreDisplay{
+    color: hsl(0, 84%, 60%);
+}
+
+
+/* Image Slider */
+
+/* Image Slider */
+
+/* Contenedor principal del slider */
+.slider{
+    position: relative; /* Permite posicionar elementos hijos de forma absoluta dentro del slider */
+    width: 100%; /* Ocupa el 100% del ancho de su contenedor padre */
+    margin: auto; /* Centra el slider horizontalmente */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
+    
+}
+
+/* Estilos para todas las imágenes dentro del slider */
+.slider img{
+    width: 20%; /* Establece el ancho de las imágenes al 20% del contenedor (muy pequeño) */
+    display: none; /* Oculta todas las imágenes por defecto */
+    
+}
+
+
+/* Clase que se aplica a la imagen visible actualmente */
+img.displaySlide{
+    display: block; /* Muestra la imagen */
+    animation-name: fade; /* Aplica la animación de fundido */
+    animation-duration: 1.5s; /* La animación dura 1.5 segundos */
+    
+}
+
+/* Estilos para los botones de navegación (anterior/siguiente) */
+.slider button{
+    position: absolute; /* Posiciona los botones de forma absoluta dentro del slider */
+    top: 50%; /* Coloca el botón en el 50% de la altura del slider */
+    transform: translateY(-50%); /* Ajusta verticalmente para centrar perfectamente el botón */
+    font-size: 2rem; /* Tamaño de fuente grande para las flechas */
+    padding: 10px 15px; /* Espaciado interno para hacer el botón más grande */
+    background-color: hsla(0, 0%, 0%, 0.812); /* Fondo negro con 81.2% de opacidad */
+    color: white; /* Color de texto blanco */
+    border: none; /* Elimina el borde por defecto */
+    cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
+}
+
+/* Botón de imagen anterior */
+.prev{
+    left:0; /* Posiciona el botón en el extremo izquierdo del slider */
+}
+
+/* Botón de imagen siguiente */
+.next{
+    right: 0; /* Posiciona el botón en el extremo derecho del slider */
+}
+
+/* Animación de fundido (fade) para transiciones entre imágenes */
+@keyframes fade{
+    from {opacity: .5;} /* Comienza con 50% de opacidad (semi-transparente) */
+    to {opacity: 1;} /* Termina con 100% de opacidad (completamente opaco) */
+}

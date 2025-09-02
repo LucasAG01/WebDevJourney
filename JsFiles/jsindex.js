@@ -2041,3 +2041,188 @@ ClsLiBtn.addEventListener("click", event =>{
     //CLiclas y si no esta disbled, se pasa a disables, pero si está disables, le añade eso.
 });
 
+
+
+/* ROCK PAPER SCISSORS */
+
+const choices = ["rock","paper","scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+
+//score system, esto es depues de haber hecho que funcionase todo, marcare lo que pertenezca a esto
+const playerScoreDisplay =  document.getElementById("playerScoreDisplay");
+const computerScoreDisplay =  document.getElementById("computerScoreDisplay");
+let playerScore = 0;
+let computerScore =0;
+
+
+
+
+function playGame(playerChoice){
+
+    const computerChoice = choices[Math.floor(Math.random()*3)];
+
+    //console.log(computerChoice); Esto es para ir viendo que elige para ver si funciona (le das click y el PC elige)
+    let result = "";
+
+    if(playerChoice === computerChoice){
+        result ="IT'S A TIE!";
+    }
+    else{
+        switch(playerChoice){
+            case "rock":
+                result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "paper":
+                result = (computerChoice === "rock") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "scissors":
+                result = (computerChoice === "paper") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+        }    
+    }
+
+    playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+    computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
+    resultDisplay.textContent = result;
+
+
+    //Toca examinar el resultado para pintar *Clases de green y red creadas*
+
+   resultDisplay.classList.remove("greenText","redText");
+    
+    switch(result){
+        case "YOU WIN!":
+            resultDisplay.classList.add("greenText");
+            //Añadido para que almacene y sume el contador de SCORE
+            playerScore++;
+            //Actualizar el text mostrado con el contador aumentado
+            playerScoreDisplay.textContent = playerScore;
+            break;
+        case "YOU LOSE!":
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+            break;
+    }
+}
+
+
+
+
+/* Image Slider */
+
+// Selecciona todas las imágenes dentro del contenedor con la clase "slides"
+const slides = document.querySelectorAll(".slides img");
+
+// Inicializa el índice de la slide actual en 0 (primera imagen)
+let slideIndex = 0;
+
+// Variable para almacenar el ID del intervalo (para poder detenerlo luego)
+let intervalId = null;
+
+// Inicializa el slider después de que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", initializeSlider);
+
+// Función para inicializar el slider
+function initializeSlider(){
+    // Verifica si hay imágenes disponibles
+    if(slides.length > 0){
+        // Muestra la primera imagen añadiendo la clase "displaySlide"
+        slides[slideIndex].classList.add("displaySlide");
+        
+        // Configura el intervalo para cambiar de imagen cada 5 segundos (5000 milisegundos)
+        // La función nextSlide se ejecutará automáticamente cada 5 segundos
+        intervalId = setInterval(nextSlide, 5000);
+    }
+}
+
+// Función para mostrar una slide específica
+function showSlide(index){
+    // Maneja los límites del slider (vuelve al principio si llega al final)
+    if(index >= slides.length){
+        slideIndex = 0; // Si el índice supera el número de slides, vuelve al inicio
+    }
+    else if(index < 0){
+        slideIndex = slides.length - 1; // Si el índice es menor que 0, va a la última slide
+    }
+    else {
+        slideIndex = index; // Establece el índice al valor proporcionado
+    }
+    
+    // Oculta todas las imágenes removiendo la clase "displaySlide"
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide");
+    });
+    
+    // Muestra la imagen actual añadiendo la clase "displaySlide"
+    slides[slideIndex].classList.add("displaySlide");
+}
+
+// Función para navegar a la slide anterior
+function prevSlide(){
+    // Detiene el intervalo automático cuando el usuario navega manualmente
+    // Esto evita que el cambio automático interfiera con la navegación manual
+    clearInterval(intervalId);
+    
+    // Retrocede al slide anterior (decrementa el índice)
+    slideIndex--;
+    
+    // Muestra la slide correspondiente al nuevo índice
+    showSlide(slideIndex);
+}
+
+// Función para navegar a la siguiente slide
+function nextSlide(){
+    // Avanza al siguiente slide (incrementa el índice)
+    slideIndex++;
+    
+    // Muestra la slide correspondiente al nuevo índice
+    showSlide(slideIndex);
+}
+
+
+
+
+/* Ejemplo callBAck Hell*/
+
+function task1(callBAck){
+    setTimeout(()=>{
+        console.log("task 1 complete");
+        callBAck();
+    },3000);
+}
+
+function task2(callBAck){
+    setTimeout(()=>{
+        console.log("task 2 complete");
+        callBAck();
+    },1500);
+}
+
+function task3(callBAck){
+    setTimeout(()=>{
+        console.log("task 3 complete");
+        callBAck();
+    },1000);
+}
+
+function task4(callBAck){
+    setTimeout(()=>{
+        console.log("task 4 complete");
+        callBAck();
+    },2000);
+}
+
+
+/*ejemplo directo*/
+/*
+task1(()=>{
+    task2(()=>{
+        task3(()=>{
+            task4(()=> console.log("All tasks competed!"));
+        });
+    });
+}); 
+*/
