@@ -10,3 +10,6 @@ TODO:
      * Boton crear o hover.
      * Codigo de una box que estrá invisible que pulse botón o pase ratón
      * Codigo css para que la box, sea una terminal mítica negra y verde.
+
+
+e96fe64 ==> Mejor entrar al codigo (2 proyectos + callBack Hell)
