@@ -1992,7 +1992,7 @@ newButton.classList = "nodeBtn";
 
 botones = document.querySelectorAll(".nodeBtn");
 
-console.log(botones)
+//console.log(botones)
 
 
 //remove
@@ -2226,3 +2226,276 @@ task1(()=>{
     });
 }); 
 */
+
+
+/* PROMISES */ 
+
+// Do these chores in order
+
+// 1. Walk the dog.
+// 2. Clean the kitchen.
+// 3. Take out the trash.
+
+
+function walkDog(callback){
+    //supongamos que nos lleva 1500 ms en pasera al perro
+    setTimeout(() =>{
+        console.log("You walk the dog 🐕");
+        callback();
+    },1500);
+}
+
+function cleanKitchen(callback){
+    //supongamos que nos lleva 1500 ms en pasera al perro
+    setTimeout(() =>{
+        console.log("You clean the kitchen 🧹");
+        callback();
+    }, 2500);
+}
+
+function takeOutTrash(callback){
+    //supongamos que nos lleva 1500 ms en pasera al perro
+    setTimeout(() =>{
+        console.log("You take out the  trash 🚛");
+        callback();
+    }, 500);
+}
+
+// Al quere que se hagan en orden, tenemos que poner de parametro un callback, que se lanzará despúes de acabar la terea.
+
+walkDog(() => {
+    cleanKitchen(() =>{
+        takeOutTrash(() => console.log("You finished all the chores!"));
+    });
+});
+
+
+
+
+// Pero esto te acabará llevando al callback Hell, así que usaremos las Promises, al poner todo ese código asíncrono
+// en una Promise, no hrán falta callbacks
+
+// 
+function walkDog(){
+    //supongamos que nos lleva 1500 ms en pasera al perro
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+        
+            const dogWalked = true;
+
+            if(dogWalked){
+                resolve("You walk the dog 🐕");    
+            }
+            else{
+                reject("You didn't walk the dog ❌");
+            }            
+    }, 1500);
+    });
+}
+
+function cleanKitchen(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+        const kitchenCleaned = true;
+
+            if(kitchenCleaned){
+                resolve("You clean the kitchen 🧹");    
+            }
+            else{
+                reject("You didn't clean the kitchen ❌");
+            }       
+    }, 2500);
+    })
+}
+
+function takeOutTrash(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+         const trashOut = true;
+
+            if(trashOut){
+                resolve("You take out the  trash 🚛");    
+            }
+            else{
+                reject("You didn't take out the  trash ❌");
+            }              
+    }, 500);
+    });
+}
+
+/*
+function takeOutTrash(){
+    return new Promise((resolve, reject) =>{
+        setTimeout(() =>{
+
+            lo que pasa en ese tiempo.
+
+        }, tiempo);
+    });
+}
+
+
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+         .then(value => {console.log(value); return takeOutTrash()})
+         .then(value => {console.log(value); console.log("You finished all the chores")})
+         .catch(error => console.error(error));
+
+// El reject es el mensaje que sale si no se cumple, si alcanza un reject y lo lanza, ni se leeraán las siguientes
+// funciones.
+*/
+
+
+
+/* Async / Await */ 
+
+/*
+walkDog().then(value => {console.log(value); return cleanKitchen()})
+         .then(value => {console.log(value); return takeOutTrash()})
+         .then(value => {console.log(value); console.log("You finished all the chores")})
+         .catch(error => console.error(error));
+*/
+
+// El objetovo con esto, es evitar esto de aquí arriba
+
+async function doChores(){
+
+    try{
+
+    const walkDogResult = await walkDog();
+    console.log(walkDogResult);
+
+    const cleanKitchenResult = await cleanKitchen();
+    console.log(cleanKitchenResult);
+
+    const takeOutTrashResult = await takeOutTrash();
+    console.log(takeOutTrashResult);
+
+    console.log("You finished all the chores");
+    }
+    catch(error){
+        //Esto es para que salga correcto el mesaje de reject en un "error" controlado
+        console.error(error);
+    }
+
+}
+
+//doChores();
+
+
+
+/* JSON files */ 
+
+const names = ["spongebob", "Patrick", "Squidward", "sandy"];
+const person = {"name":"Spongebob", "age":30, "isEmployed":true, "hobbies":["Jellyfishing","karate","cooking"]};
+const people = [{"name":"Spongebob","age":30,"isEmployed":true},
+                {"name":"Patrick", "age":34, "isEmployed":false},
+                {"name":"SquidWard", "age":50, "isEmployed":true},
+                {"name":"Sandy", "age":27, "isEmployed":false}];
+
+//Lo transformamos este Js en un tring gigante                
+const jsonStringNames= JSON.stringify(names);
+
+//Lo convertimos de nuevo en un JS
+const reJsnames = JSON.parse(jsonStringNames)
+
+
+//Fetch es Busca y Trae ,,,,devuleve un Promise
+/*
+fetch("person.json")
+    .then(response => response.json())
+    .then(value => console.log(value));
+    
+
+//POdemos hacer una iteración y que  haga un print de cada elemento en un array
+  fetch("people.json")
+    .then(response => response.json())
+    .then(values => values.forEach(value => console.log(value)));  
+*/
+
+
+
+
+
+//Es promise, por lo que hay un resolve o reject añadimos then y catch (para errore)
+/*
+fetch("https://pokeapi.co/api/v2/pokemon/tepig")
+        .then(response => console.log(response))
+        .catch(error => console.error(error));
+*/
+
+// Al ejectutar, me devolvio un response com muchas cosas, ahora tenemos que hacerlas leíbles.  
+// vienen diferentes métodos para hacerlo (arrayBuffer, blob, text y JSON).   
+// Eligiré JSON para serguir la linea de los anteriores apartados.
+// entre la respuesta, hay un boolean OK = true si nos devuelve algo y false si hay algún error y no devuleve nada.
+
+//Aquí povocamos, que nos devulevan un tipo Object JSON
+/*
+fetch("https://pokeapi.co/api/v2/pokemon/chimchar")
+        // Hamemos una llamda response => response.json() pero mejor usamos un handler para hacer comporbaciones
+        // y si hay un ok = false, lo manejamos
+        .then(response => {
+
+            if(!response.ok){
+                throw new Error("Could not fetch resource");
+            }
+            return response.json()
+
+        })
+        //Aquí cojemos la data que nos devolverán, siqueremos solo nombre (data.name)
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+*/
+
+// Vamos a usar un async y await para hacerlo
+//fetchData(); // importante llamrlo para que vaya
+/*
+async function fetchData(){
+
+    try{  
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/chimchar");
+
+        if(!response.ok){
+            throw new Error("could not fetch resource");
+        }
+
+        const data = await response.json();       
+        console.log(data);
+    }
+    catch(error){
+         console.error(error);         
+    }
+}
+*/
+//Esto es una modiifcacion de lo de arriba para adaptarlo al ejemplo interactivo del button en el html
+
+async function fetchData(){
+
+    try{  
+        const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+         //El input del html
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+  
+        if(!response.ok){
+            throw new Error("could not fetch resource");
+        }
+
+        const data = await response.json();
+        //queremos el spirte llamdo front_default en la seccion sprites
+        const pokemonSprite = data.sprites.front_default;
+
+        const imgElement = document.getElementById("pokemonSprite"); // id del <img> en el html
+
+        imgElement.src = pokemonSprite; //La source que estaba en el html en blanco pasa a ser esto
+        imgElement.style.display = "block"; // El display que estaba en none en el html pasa a block
+       
+        //Falta adaptar el tamaño ya que un spirte es muy chico
+        //Falta una forma de hacer que si le das a fetch y no hay nada, salte un error controlado .  
+    }
+    catch(error){
+         console.error(error);         
+    }
+}
+
+
+
+
