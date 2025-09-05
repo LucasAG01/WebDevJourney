@@ -447,3 +447,108 @@ img.displaySlide{
     from {opacity: .5;} /* Comienza con 50% de opacidad (semi-transparente) */
     to {opacity: 1;} /* Termina con 100% de opacidad (completamente opaco) */
 }
+
+
+.WeatherContainer{
+    font-family: Arial, sans-serif;  /*Arial, sans-serif;*/
+    background-color: hsl(0, 0%, 95%);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weatherForm{
+    margin: 20px;
+}
+
+.cityInput{
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid hsla(0, 0%, 0%, 0.333);
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+#weatherSubmit{
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: greenyellow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#weatherSubmit:hover{
+    background-color: rgba(172, 255, 47, 0.663);
+}
+
+.card{
+    background: linear-gradient(180deg, hsla(210, 90%, 65%, 0.692), hsl(40, 68%, 53%));
+    padding: 50px;
+    border-radius:10px ;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.543);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.WeatherContainer h1.cityDisplay{
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 3.5rem;
+}
+
+.WeatherContainer .humidityDisplay{
+    /*ajustes <p> generales*/
+    font-size: 1.5rem;
+    margin: 5px 0;
+    /*Específicos*/
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.WeatherContainer .descDisplay{
+    /*ajustes <p> generales*/
+    margin: 5px 0;
+    /*Específicos*/
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2rem;
+    
+}
+
+.WeatherContainer .weatherEmoji{
+    /*ajustes <p> generales
+    font-size: 1.5rem;
+    */
+    margin: 0;
+    font-size: 7.5rem;
+    
+}
+
+.WeatherContainer .errorDisplay{
+    /*ajustes <p> generales
+    font-size: 1.5rem;
+    margin: 5px 0;
+    */
+    /*Específicos*/
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.75);
+    margin: 20px;
+}
+
+.WeatherContainer p.tempDisplay{
+    margin-top: 0; 
+    margin-bottom: 25px;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.75);
+}
+
+
